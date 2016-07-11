@@ -39,6 +39,17 @@
         .owl-carousel img{
             height: 120px;
         }
+        #owl-demo .item{
+            background: #a1def8;
+            padding: 30px 0px;
+            display: block;
+            margin: 5px;
+            color: #FFF;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            text-align: center;
+        }
     </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -287,6 +298,14 @@
 </div>&lt;!&ndash;  getit area end &ndash;&gt;
 
 -->
+<div class="service_area">
+    <div class="container">
+        <div class="row">
+            <div id="owl-demo" class="owl-carousel">
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <div class="blog_area">
@@ -294,6 +313,10 @@
         <div class="row">
             <div class="blog_section">
                 <h1>Today's Best<span> post</span></h1>
+                <div class="blog_section" id="webtoon_area">
+                </div>
+            </div>
+                <!--
                 <div class="single_blog col-md-4 slider-content">
                     <a href="#">
                         <img src="img/1.jpg" alt="">
@@ -327,6 +350,7 @@
                         </div>
                     </a>
                 </div>
+                -->
             </div>
         </div>
     </div>
@@ -357,12 +381,9 @@
 <script src="js/imagesloaded.pkgd.min.js"></script>
 <script src="js/bootstrap-datepicker.js"></script>
 <script src="js/bootstrap-datepicker.kr.js"></script>
-
-
-
 <script src="js/owl.carousel.min.js"></script>
-
 <script src="js/scrollupto.js"></script>
+<script src="js/jsonLoad.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 
 <script>
@@ -380,6 +401,7 @@
     $('#datepicker').datepicker({
         autoclose:true
     });
+
 </script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
@@ -439,6 +461,7 @@
         // iframe을 넣은 element를 보이게 한다.
         element_wrap.style.display = 'block';
     }
+
 </script>
 </body>
 </html>

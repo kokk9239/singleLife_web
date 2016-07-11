@@ -50,6 +50,10 @@
             border-radius: 3px;
             text-align: center;
         }
+        #blog-content{
+            height: 340px;
+        }
+
     </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -172,6 +176,8 @@
 
 
 
+
+
 <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
     <!-- Overlay -->
     <div class="overlay"></div>
@@ -230,18 +236,17 @@
             </div>
             <div class="span11">
                 <div class="owl-carousel" id="owl-example">
-                        <a href = "board.html">
-                            <div class="item orange">
-                                <img src="img/icon/혼밥.png">
-                                <h4>맛집</h4>
-                                <h5>혼자 밥 먹기</h5>
-                            </div>
-                        </a>
-                    <div class="item steelGray">
-                        <img src="img/icon/여행.png">
-                        <h4>여행</h4>
-                        <h5>혼자 갈 수 있는 여행 정보</h5>
-                    </div>
+                        <div class="item orange" id="honbap">
+                            <img src="img/icon/혼밥.png">
+                            <h4>맛집</h4>
+                            <h5>혼자 밥 먹기</h5>
+                        </div>
+                        <div class="item steelGray">
+                            <img src="img/icon/여행.png">
+                            <h4>여행</h4>
+                            <h5>혼자 갈 수 있는 여행 정보</h5>
+                        </div>
+
                     <div class="item darkCyan">
                         <img src="img/icon/쇼핑.png">
                         <h4>구매 상품 정보</h4>
@@ -252,7 +257,7 @@
                         <h4>중고장터</h4>
                         <h5>중고 물품 판매 및 구매</h5>
                     </div>
-                    <div class="item yellow">
+                    <div class="item yellow"  id = "youtube">
                         <img src="img/icon/game.png">
                         <h4>혼자놀기</h4>
                         <h5>게임 및 컨텐츠</h5>

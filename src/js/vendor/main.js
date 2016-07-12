@@ -209,3 +209,19 @@
       });
 
   });
+
+ //추가추가했어
+        $(document).ready(function ($) {
+            $("#owl-example").owlCarousel();
+            $("#owl-menu").owlCarousel();
+        });
+        $("body").data("page", "frontpage");
+
+        $(".btn-hero").on("click",function(obj){
+            var position = $(".service_area").offset();
+            $("html, body").animate({scrollTop: position.top},500);
+        });
+        //Date picker
+        $('#datepicker').datepicker({
+            autoclose:true
+        });

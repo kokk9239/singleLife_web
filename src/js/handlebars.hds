@@ -1,0 +1,9 @@
+{{#each .}}
+<div class="single_blog col-md-4 slider-content" id="webtoon">
+    <a href="http://comic.naver.com{{link}}">
+        <img src="http://192.168.0.63:8000/controller/play/getimg?image={{image}}"/>
+        <div class="slider-text titleContent">
+            <h3 class="titleArea">{{title}}</h3>
+            <p><i class="fa fa-user"></i> {{writer}} <i class="fa fa-star"></i>{{star}}</p>
+        </div></a></div>
+{{/each}}

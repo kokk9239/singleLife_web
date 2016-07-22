@@ -50,12 +50,22 @@
             border-radius: 3px;
             text-align: center;
         }
+        .item:hover{
+
+            cursor: pointer;
+        }
         #blog-content{
             height: 400px;
+        }
+        #webtoon{
+            height: 300px;
         }
         #webtoon img{
             width: 120px;
             height: 140px;
+        }
+        .nav-tabs img{
+            width: 60px;
         }
 
     </style>
@@ -79,8 +89,8 @@
             <div class="mobile-toggle"><span></span> <span></span> <span></span></div>
             <nav>
                 <ul class="main_menu">
-                    <li><a href=".hero">Home</a></li>
-                    <li><a href=".service_area">Menu</a></li>
+                    <li><a href=".hero" id="homeBtn">Home</a></li>
+                    <li><a href=".service_area" id ="menuBtn">Menu</a></li>
                     <li><a href = "#" data-toggle="modal" data-target="#loginModal">Login</a></li>
 
                 </ul>
@@ -264,17 +274,16 @@
             </div>
             <div class="span11">
                 <div class="owl-carousel" id="owl-example">
-                        <div class="item orange" id="honbap">
-                            <img src="img/icon/혼밥.png">
-                            <h4>맛집</h4>
-                            <h5>혼자 밥 먹기</h5>
-                        </div>
-                        <div class="item steelGray">
-                            <img src="img/icon/여행.png">
-                            <h4>여행</h4>
-                            <h5>혼자 갈 수 있는 여행 정보</h5>
-                        </div>
-
+                    <div class="item orange" id="honbap">
+                        <img src="img/icon/혼밥.png">
+                        <h4>맛집</h4>
+                        <h5>그들이 혼밥하는 이유</h5>
+                    </div>
+                    <div class="item steelGray">
+                        <img src="img/icon/여행.png">
+                        <h4>여행</h4>
+                        <h5>혼자 갈 수 있는 여행 정보</h5>
+                    </div>
                     <div class="item darkCyan">
                         <img src="img/icon/쇼핑.png">
                         <h4>구매 상품 정보</h4>
@@ -285,7 +294,22 @@
                         <h4>중고장터</h4>
                         <h5>중고 물품 판매 및 구매</h5>
                     </div>
-                    <div class="item yellow"  id = "youtube">
+                    <div class="item zombieGreen" id="cvs">
+                        <img src="img/icon/편의저엄.gif">
+                        <h4>편의점</h4>
+                        <h5>근처 편의점 및 할인 정보</h5>
+                    </div>
+                    <div class="item yellowLight" id="youtube">
+                        <img src="img/icon/유투브.png" style="width: 120px;">
+                        <h4>YouTube</h4>
+                        <h5>동영상 보기</h5>
+                    </div>
+                    <div class="item dodgerBlue" id="watchWebtoon">
+                        <img src="img/icon/웹툰.png">
+                        <h4>WebToon</h4>
+                        <h5>웹툰 보기</h5>
+                    </div>
+                    <div class="item yellow">
                         <img src="img/icon/game.png">
                         <h4>혼자놀기</h4>
                         <h5>게임 및 컨텐츠</h5>
@@ -295,21 +319,12 @@
                         <h4>1인분레시피</h4>
                         <h5>셀프 쿡팁 대공개</h5>
                     </div>
-                    <div class="item zombieGreen">
-                        <img src="img/icon/편의저엄.gif">
-                        <h4>편의점</h4>
-                        <h5>근처 편의점 및 할인 정보</h5>
-                    </div>
                     <div class="item skyBlue">
-                        <img src="img/icon/휴식공간.png">
-                        <h4>휴식 공간</h4>
-                        <h5>근처 휴식 공간 위치 제공</h5>
+                        <img src="img/icon/택배.png">
+                        <h4>택배 서비스</h4>
+                        <h5>택배 알림 및 조회</h5>
                     </div>
-                    <div class="item yellowLight">
-                        <img src="img/icon/건강.png">
-                        <h4>건강 정보</h4>
-                        <h5>깨알 건강 팁</h5>
-                    </div>
+
 
                 </div>
             </div>
@@ -317,76 +332,116 @@
         </div>
     </div>
 </div>
-
-<!--
-
-<div class="getit_area">
+<!--워크에어리어-->
+<div class="work_area">
     <div class="container">
         <div class="row">
-            <div class="getit_section">
-                <h1>WelCome Single Life</h1>
+            <div class="work_section">
+                <h1 class="wow bounceInLeft"><span>편의점</span> 정보</h1>
+                <div class="col-md-12 wow bounceInRight animated">
+                    <div class="bs-example">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#sectionA"><img src="img/gs25수정.gif"></a></li>
+                            <li><a data-toggle="tab" href="#sectionB"><img src="img/CU로고수정.gif"></a></li>
+                            <li><a data-toggle="tab" href="#sectionC"><img src="img/seveneleven수정.gif"></a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="sectionA" class="tab-pane fade in active">
+                                <div class="portfolio_area" >
+                                    <div class="container" id="gs_content">
+                                        <div class="portfolio_section">
+                                            <div class="col-md-12 portfolio_top">
+                                            </div>
+                                        </div>
+
+                                        <ul id="gsFilters" class="clearfix">
+                                            <li><span class="filter active" id="gsoneplus" data-filter="1+1">1+1</span></li>
+                                            <li><span class="filter" id="gstwoplus" data-filter="2+1">2+1</span></li>
+                                            <li><span class="filter" id="gsgift" data-filter="증정">증정상품</span></li>
+                                        </ul>
+
+                                        <div id="gsportfoliolist">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="sectionB" class="tab-pane fade">
+                                <ul id="cuFilters" class="clearfix">
+                                    <li><span class="filter active" data-filter="mon">1+1</span></li>
+                                    <li><span class="filter"  data-filter="tue">2+1</span></li>
+                                    <li><span class="filter"  data-filter="wed">증정상품</span></li>
+                                </ul>
+                                <div id="cuportfoliolist">
+
+                                </div>
+                            </div>
+                            <div id="sectionC" class="tab-pane fade">
+                                <ul id="sevenFilters" class="clearfix">
+                                    <li><span class="filter active" data-filter="mon">1+1</span></li>
+                                    <li><span class="filter"  data-filter="tue">2+1</span></li>
+                                    <li><span class="filter"  data-filter="wed">증정상품</span></li>
+                                </ul>
+                                <div id="sevenportfoliolist">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>&lt;!&ndash;  getit area end &ndash;&gt;
+</div><!-- work area end   -->
 
--->
-<div class="service_area">
+<div class="portfolio_area" id="portfolioArea">
+    <div class="container" id="webtoon_content">
+        <div class="portfolio_section">
+            <div class="col-md-12 portfolio_top" id = "category_top">
+            </div>
+        </div>
+
+            <ul id="filters" class="clearfix">
+                <li><span class="filter active" id = "monBtn" data-filter="mon">월요일</span></li>
+                <li><span class="filter" id = "tueBtn" data-filter="tue">화요일</span></li>
+                <li><span class="filter" id = "wedBtn" data-filter="wed">수요일</span></li>
+                <li><span class="filter" id = "thuBtn" data-filter="thu">목요일</span></li>
+                <li><span class="filter" id = "friBtn" data-filter="fri">금요일</span></li>
+                <li><span class="filter" id = "satBtn" data-filter="sat">토요일</span></li>
+                <li><span class="filter" id = "sunBtn" data-filter="sun">일요일</span></li>
+            </ul>
+
+            <div id="portfoliolist">
+
+            </div>
+    </div>
+</div><!-- portfolio area end   -->
+
+<!--<div class="service_area">
     <div class="container">
         <div class="row">
             <div id="owl-demo" class="owl-carousel">
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
 
 <div class="blog_area">
     <div class="container">
         <div class="row">
-            <div class="blog_section">
-                <h1>Today's Best<span> post</span></h1>
-                <div class="blog_section" id="webtoon_area">
-                </div>
-            </div>
-                <!--
-                <div class="single_blog col-md-4 slider-content">
-                    <a href="#">
-                        <img src="img/1.jpg" alt="">
-                        <div class="slider-text">
-                            <h3>This is demo title</h3>
-                            <p><i class="fa fa-user"></i> By FAHEM <i class="fa fa-clock-o"></i> August 31th, 2014</p>
-                            <p>It has survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially.</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="single_blog col-md-4 slider-content">
-                    <a href="#">
-                        <img src="img/2.jpg" alt="">
-                        <div class="slider-text">
-                            <h3>This is demo title</h3>
-                            <p><i class="fa fa-user"></i> By FAHEM <i class="fa fa-clock-o"></i> August 31th, 2014</p>
-                            <p>It has survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially.</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="single_blog col-md-4 slider-content">
-                    <a href="#">
-                        <img src="img/3.jpg" alt="">
-                        <div class="slider-text">
-                            <h3>This is demo title</h3>
-                            <p><i class="fa fa-user"></i> By FAHEM <i class="fa fa-clock-o"></i> August 31th, 2014</p>
-                            <p>It has survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially.</p>
-                        </div>
-                    </a>
-                </div>
-                -->
+            <div class="blog_section" id="main_content">
             </div>
         </div>
     </div>
+</div>
+
+<!-- loading icon area -->
+<div class ="loadingArea">
+
+</div>
+
 </div><!-- blog area end   -->
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
@@ -405,15 +460,55 @@
 <script type="text/javascript" src="js/vendor/jquery.easing.min.js"></script>
 <script type="text/javascript" src="js/vendor/jquery.mixitup.min.js"></script>
 <script src="js/vendor/imagesloaded.pkgd.min.js"></script>
-<script src="js/vendor/bootstrap-datepicker.js"></script>
-<script src="js/vendor/bootstrap-datepicker.kr.js"></script>
+<script src="js/vendor/bootstrap-datepicker.js"
+<script src="js/vendor/bootstrap-datepicker-kr.js"></script>
+<script type="text/javascript" src="js/vendor/main.js"></script>
 <script src="js/vendor/owl.carousel.min.js"></script>
 <script src="js/vendor/scrollupto.js"></script>
-<!--<script src="js/jsonLoad.js"></script>-->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<script id="template" type="text/x-handlebars-template">
+    {{#each .}}
+    <div class="portfolio {{updateday}} mix_all" data-cat="{{updateday}}">
+        <div class="portfolio-wrapper">
+            <img src="http://192.168.0.53:8000/controller/play/getimg?image={{image}}" alt = ""  style="width:120px; height:130px;"/>
+            <div class="label">
+                <div class="label-text">
+                    <a href="http://{{link}}"target="_blank" class="text-title">{{title}}</a>
+                    <span class="text-category">{{writer}}</span>
+                    <input type = "hidden" value="{{origin}}" id="dataOrigin">
+                </div>
+                <div class="label-bg {{origin}}"></div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+<script id="cvsTemplate" type="text/x-handlebars-template">
+    {{#each .}}
+    <div class="portfolio {{event}} mix_all" data-cat="{{event}}" style="display:inline-block; opacity:1;">
+        <div class="portfolio-wrapper">
+            <img src="http://192.168.0.53:8000/controller/play/getimg?image={{image}}" alt = "" style="width:200px; height:200px" />
+            <div class="label">
+                <div class="label-text">
+                    <a class="text-title">{{prodname}}</a>
+                    <span class="text-category">{{price}}원</span>
+                    <input type = "hidden" value="{{store}}" id="dataStore">
+                </div>
+                <div class="label-bg {{store}}"></div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+
+
 <script src="js/playing/module-playing.js"></script>
 <script src="js/playing/event-playing.js"></script>
-<script type="text/javascript" src="js/vendor/main.js"></script>
+<script src="js/cvs/module-cvs.js"></script>
+<script src="js/cvs/event-cvs.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="js/vendor/address.js"></script>
+<script src = "js/common/module-common.js"></script>
+
 </body>
 </html>

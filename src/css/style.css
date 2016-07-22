@@ -599,7 +599,7 @@ scroll {  0% {
 
 .tab-pane{
   border: 1px solid #ddd;
-  padding: 42px;
+  padding: 25px;
   background-color:#ffffff;
 }
 
@@ -708,23 +708,128 @@ scroll {  0% {
     color:#fff;
   }
 
+  /*편의점 필터 추가요*/
+
+#cuFilters {
+    margin:1%;
+    padding:0;
+    list-style:none;
+}
+
+#cuFilters li {
+    float:left;
+}
+
+#cuFilters li span {
+    display: block;
+    padding:5px 20px;
+    text-decoration:none;
+    color:#666;
+    cursor: pointer;
+}
+
+#cuFilters li span.active {
+    background: #782C90;
+    color:#fff;
+}
+
+#gsFilters {
+    margin:1%;
+    padding:0;
+    list-style:none;
+}
+
+#gsFilters li {
+    float:left;
+}
+
+#gsFilters li span {
+    display: block;
+    padding:5px 20px;
+    text-decoration:none;
+    color:#666;
+    cursor: pointer;
+}
+
+#gsFilters li span.active {
+    background: #3498DB;
+    color:#fff;
+}
+
+#sevenFilters {
+    margin:1%;
+    padding:0;
+    list-style:none;
+}
+
+#sevenFilters li {
+    float:left;
+}
+
+#sevenFilters li span {
+    display: block;
+    padding:5px 20px;
+    text-decoration:none;
+    color:#666;
+    cursor: pointer;
+}
+
+#sevenFilters li span.active {
+    background: #1B8A5F;
+    color:#fff;
+}
 
 
 #portfoliolist .portfolio {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
-  width:23%;
+  width:12%;
   margin:1%;
   display:none;
   float:left;
   overflow:hidden;
 }
 
+/*편의점 추가염*/
+
+#gsportfoliolist .portfolio {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    width:25%;
+    margin:1%;
+    display:none;
+    float:left;
+    overflow:hidden;
+}
+
+#cuportfoliolist .portfolio {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    width:12%;
+    margin:1%;
+    display:none;
+    float:left;
+    overflow:hidden;
+}
+
+#sevenportfoliolist .portfolio {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    width:12%;
+    margin:1%;
+    display:none;
+    float:left;
+    overflow:hidden;
+}
+
   .portfolio-wrapper {
     overflow:hidden;
     position: relative !important;
-    background: #666;
+    background: #FFFFFF;
     cursor:pointer;
   }
 
@@ -733,6 +838,8 @@ scroll {  0% {
     position: relative;
   }
 
+
+
   .portfolio .label {
     position: absolute;
     width: 100%;
@@ -740,13 +847,31 @@ scroll {  0% {
     bottom:-40px;
   }
 
+.portfolio .naver{
+    background: #23B200;
+
+}
+
     .portfolio .label-bg {
-      background: #e95a44;
+        background: #23B200;
       width: 100%;
       height:100%;
       position: absolute;
       top:0;
       left:0;
+    }
+.portfolio .daum{
+    background: #618EFC;
+
+}
+.portfolio .GS{
+    background: #3498DB;
+
+}
+    .portfolio .text-title{
+        color: #333333;
+        font-size: 14px;
+
     }
 
     .portfolio .label-text {
@@ -758,13 +883,8 @@ scroll {  0% {
 
       .portfolio .text-category {
         display:block;
-        font-size:9px;
+        font-size:11px;
       }
-
-
-
-
-
 
 /* #Tablet (Portrait) */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
@@ -780,11 +900,24 @@ scroll {  0% {
     width: 95%;
   }
 
+
   #portfoliolist .portfolio {
     width:48%;
     margin:1%;
   }
 
+  #gsportfoliolist .portfolio {
+    width:100%;
+    margin:5%;
+  }
+  #cuportfoliolist .portfolio {
+    width:100%;
+    margin:5%;
+  }
+  #sevenportfoliolist .portfolio {
+    width:100%;
+    margin:5%;
+  }
   #ads {
     display:none;
   }
@@ -800,6 +933,9 @@ scroll {  0% {
 
   #ads {
     display:none;
+  }
+  #gsportfoliolist img{
+      max-width: 100%;
   }
 
 }

@@ -22,7 +22,6 @@ $(document).ready(function () {
                     content += " <div class='single_blog col-md-4 slider-content' id='webtoon'>"
                         + "<a href='http://comic.naver.com"+link+"'>"
                         + "<img src='http://192.168.0.18:8000/controller/play/getimg?image="+image+"'/>"
-                        /*+ tag*/
                         + "<div class='slider-text'>"
                         + "<h3>" + title + "</h3>"
                         + "<p><i class='fa fa-user'></i> By FAHEM <i class='fa fa-clock-o'></i> " + regdate + "</p>"

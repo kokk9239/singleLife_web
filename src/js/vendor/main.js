@@ -33,16 +33,31 @@
 
         // navigation scroll lijepo radi materem
         $('nav a').click(function(event) {
+            event.preventDefault();
             var id = $(this).attr("href");
-            var offset = 70;
-            var target = $(id).offset().top - offset;
+            var offset = 50;
+            var target = $(id).offset().top-offset;
+            $('html, body').animate({
+                scrollTop: target
+            }, 500);
+
+        });
+
+
+/*        // 메뉴단 위치 추가
+        $("#homeBtn").on("click",function(obj){
+/!*            var id = $(this).attr("href");
+            var position = $(id).offset();
+            $("html, body").animate({scrollTop: position.top},500);*!/
+
+            var id = $(this).attr("href");
+            var offset = 100;
+            var target = $(id).offset().top-offset;
             $('html, body').animate({
                 scrollTop: target
             }, 500);
             event.preventDefault();
-        });
-
-
+        });*/
 
         // wow js
 
@@ -61,49 +76,164 @@
       );
 
       // portfolio filter
+        $(function () {
 
-      $(function () {
+            var filterList = {
 
-        var filterList = {
+                init: function () {
 
-          init: function () {
+                    // MixItUp plugin
+                    // http://mixitup.io
+                    $('#portfoliolist').mixitup({
+                        targetSelector: '.portfolio',
+                        filterSelector: '.filter',
+                        effects: ['fade'],
+                        easing: 'snap',
+                        // call the hover effect
+                        onMixEnd: filterList.hoverEffect()
+                    });
 
-            // MixItUp plugin
-            // http://mixitup.io
-            $('#portfoliolist').mixitup({
-              targetSelector: '.portfolio',
-              filterSelector: '.filter',
-              effects: ['fade'],
-              easing: 'snap',
-              // call the hover effect
-              onMixEnd: filterList.hoverEffect()
-            });
+                },
 
-          },
+                hoverEffect: function () {
 
-          hoverEffect: function () {
+                    // Simple parallax effect
+                    $('#portfoliolist .portfolio').hover(
+                        function () {
+                            $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+                            $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');
+                        },
+                        function () {
+                            $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+                            $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');
+                        }
+                    );
+                }
+            };
 
-            // Simple parallax effect
-            $('#portfoliolist .portfolio').hover(
-              function () {
-                $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
-                $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');
-              },
-              function () {
-                $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
-                $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');
-              }
-            );
-
-          }
-
-        };
-
-        // Run the show!
-        filterList.init();
+            // Run the show!
+            filterList.init();
+        });
 
 
-      });
+        // portfolio filter
+        $(function () {
+
+            var filterListGS = {
+
+                init: function () {
+
+
+                    // MixItUp plugin
+                    // http://mixitup.io
+                    $('#gsportfoliolist').mixitup({
+                        targetSelector: '.portfolio',
+                        filterSelector: '.filter',
+                        effects: ['fade'],
+                        easing: 'snap',
+                        // call the hover effect
+                        onMixEnd: filterListGS.hoverEffect()
+                    });
+
+                },
+
+                hoverEffect: function () {
+
+                    // Simple parallax effect
+                    $('#gsportfoliolist .portfolio').hover(
+                        function () {
+                            $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+                            $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');
+                        },
+                        function () {
+                            $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+                            $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');
+                        }
+                    );
+                }
+            };
+
+            // Run the show!
+            filterListGS.init();
+        });
+        $(function () {
+
+            var filterListCU = {
+
+                init: function () {
+
+
+                    // MixItUp plugin
+                    // http://mixitup.io
+                    $('#cuportfoliolist').mixitup({
+                        targetSelector: '.portfolio',
+                        filterSelector: '.filter',
+                        effects: ['fade'],
+                        easing: 'snap',
+                        // call the hover effect
+                        onMixEnd: filterListCU.hoverEffect()
+                    });
+
+                },
+
+                hoverEffect: function () {
+
+                    // Simple parallax effect
+                    $('#cuportfoliolist .portfolio').hover(
+                        function () {
+                            $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+                            $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');
+                        },
+                        function () {
+                            $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+                            $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');
+                        }
+                    );
+                }
+            };
+
+            // Run the show!
+            filterListCU.init();
+        });
+        $(function () {
+
+            var filterListSEVEN = {
+
+                init: function () {
+
+
+                    // MixItUp plugin
+                    // http://mixitup.io
+                    $('#sevenportfoliolist').mixitup({
+                        targetSelector: '.portfolio',
+                        filterSelector: '.filter',
+                        effects: ['fade'],
+                        easing: 'snap',
+                        // call the hover effect
+                        onMixEnd: filterListSEVEN.hoverEffect()
+                    });
+
+                },
+
+                hoverEffect: function () {
+
+                    // Simple parallax effect
+                    $('#sevenportfoliolist .portfolio').hover(
+                        function () {
+                            $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+                            $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');
+                        },
+                        function () {
+                            $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+                            $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');
+                        }
+                    );
+                }
+            };
+
+            // Run the show!
+            filterListSEVEN.init();
+        });
 
 
       // Skillset js

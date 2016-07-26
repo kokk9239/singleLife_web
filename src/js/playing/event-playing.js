@@ -16,7 +16,7 @@ $(document).ready(function () {
         $("#portfolioArea").css("display", "block");
         $("#main_content").html("");
         $(".work_area").css("display", "none");
-        common_module.moveMenu();
+        common_module.moveWebtoonMenu();
         play_module.showWebtoon();
     });
 
@@ -24,7 +24,7 @@ $(document).ready(function () {
     $("#youtube").on("click", function () {
         pageNo=1;
         $(".work_area").css("display", "none");
-        common_module.moveMenu();
+        common_module.moveYoutubeMenu();
         play_module.youtubeTitle();
         play_module.showYoutube(pageNo);
         $(window).unbind('scroll');

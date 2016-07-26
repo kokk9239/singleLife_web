@@ -3,38 +3,42 @@
  */
 var honbap_module = (function () {
 
-    function showHonbap() {
+    function honbapTitle(){
+        $("#main_content").html("<h1><span> 혼밥</span> 식당 </h1>");
+    }
 
-        $.getJSON("http://192.168.0.18:8000/controller/play/webtoon/mon", function (data) {
-
+    function showHonbap(pageNo) {
+        $.getJSON("http://192.168.0.53:8000/controller/travel?pageNo="+pageNo+"&pageSize=9", function (data) {
+            if(!data.length){
+                $(".loadingArea").html("");
+                alert("마지막 페이지 입니다.");
+                return false;
+            }
             var content = "";
-            var header ="";
-
-            header = "<h1>네이버 블로그<span> 혼밥 정보</span></h1>";
-
             for (var i in data) {
+                var number = data[i].no;
+                var link = data[i].link;
                 var image = data[i].image;
                 var title = data[i].title;
-                var link = data[i].link;
-                var writer = data[i].writer;
-                var star = data[i].star;
-
+                var regdate = data[i].updatedate;
                 if (image != undefined) {
-                    content += "<div class='single_blog col-md-4 slider-content' id='webtoon'>"
-                        + "<a href='http://comic.naver.com" + link + "'>"
-                        + "<img src='http://192.168.0.18:8000/controller/play/getimg?image=" + image + "'/>"
-                        + "<div class='slider-text titleContent'>"
-                        + "<h3 class='titleArea'>" + title + "</h3>"
-                        + "<p><i class='fa fa-user'></i> "+writer+" <i class='fa fa-star'></i> " + star + "</p>"
+                    content = " <div class='single_blog col-md-4 slider-content ' id='blog-content'>"
+                        + "<a href='"+link+"' target='_blank' >"
+                        + "<img src='http://192.168.0.53:8000/controller/play/getimg?image=" + image + "'/>"
+                        + "<div class='slider-text'>"
+                        + "<h4>" + title + "</h4>"
+                        + "<p><i class='fa fa-user'></i> By Blog <i class='fa fa-clock-o'></i> " + regdate + "</p>"
                         + "</div></a></div>";
-                }
-            }
-            $("#main_content").html(header + content);
 
+                    $("#main_content").append(content);
+                }
+
+            }
         });
     }
 
     return {
-        showHonbap : showHonbap
+        showHonbap : showHonbap,
+        honbapTitle : honbapTitle
     }
 })();

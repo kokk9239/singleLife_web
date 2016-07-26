@@ -4,14 +4,25 @@
 
 var common_module = (function () {
 
-    function moveMenu() {
+    function moveYoutubeMenu() {
         var position = $("#main_content").offset();
         $("html, body").animate({scrollTop: position.top-100},500);
     }
-    return{
-        moveMenu : moveMenu
+
+    function moveWebtoonMenu() {
+        var position = $("#category_top").offset();
+        $("html, body").animate({scrollTop: position.top-100},500);
     }
-    
+    function moveCvsMenu() {
+        var position = $(".work_section").offset();
+        $("html, body").animate({scrollTop: position.top-100},500);
+    }
+    return{
+        moveYoutubeMenu : moveYoutubeMenu,
+        moveCvsMenu : moveCvsMenu,
+        moveWebtoonMenu : moveWebtoonMenu
+    }
+
 })();
 
 

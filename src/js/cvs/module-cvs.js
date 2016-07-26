@@ -38,65 +38,129 @@ var cvs_module = (function () {
         });
 
     }
+    function showGSGift(pageNo) {
 
-
-    function showGS() {
-
-        $.getJSON("http://192.168.0.53:8000/controller/cvs/store/gs", function (data) {
+        $.getJSON("http://192.168.0.53:8000/controller/cvs/gs/add?pageNo="+pageNo+"&pageSize=9", function (data) {
             if(!data.length){
                 $(".loadingArea").html("");
+                alert("마지막 페이지 입니다.");
                 return false;
             }
 
-            var source = $("#cvsTemplate").html();
+            var source = $("#giftTemplate").html();
             var template = Handlebars.compile(source);
-            $("#gsportfoliolist").html(template(data));
-            $("#gsoneplus").click();
-
+            $("#gsportfoliolist").append(template(data));
 
         });
+
     }
+    function showCUPlus1(pageNo) {
 
-    function showCU() {
-
-        $.getJSON("http://192.168.0.53:8000/controller/cvs/store/cu", function (data) {
+        $.getJSON("http://192.168.0.53:8000/controller/cvs/cu/plus1?pageNo="+pageNo+"&pageSize=9", function (data) {
             if(!data.length){
                 $(".loadingArea").html("");
+                alert("마지막 페이지 입니다.");
                 return false;
             }
 
             var source = $("#cvsTemplate").html();
             var template = Handlebars.compile(source);
-            $("#cuportfoliolist").html(template(data));
-            $("#gsoneplus").click();
-
+            $("#cuportfoliolist").append(template(data));
 
         });
+
     }
+    function showCUPlus2(pageNo) {
 
-    function showSEVEN() {
-
-        $.getJSON("http://192.168.0.53:8000/controller/cvs/store/seven", function (data) {
+        $.getJSON("http://192.168.0.53:8000/controller/cvs/cu/plus2?pageNo="+pageNo+"&pageSize=9", function (data) {
             if(!data.length){
                 $(".loadingArea").html("");
+                alert("마지막 페이지 입니다.");
                 return false;
             }
 
             var source = $("#cvsTemplate").html();
             var template = Handlebars.compile(source);
-            $("#sevenportfoliolist").html(template(data));
-            $("#gsoneplus").click();
-
+            $("#cuportfoliolist").append(template(data));
 
         });
+
+    }
+    function showCUGift(pageNo) {
+
+        $.getJSON("http://192.168.0.53:8000/controller/cvs/cu/add?pageNo="+pageNo+"&pageSize=9", function (data) {
+            if(!data.length){
+                $(".loadingArea").html("");
+                alert("마지막 페이지 입니다.");
+                return false;
+            }
+
+            var source = $("#giftTemplate").html();
+            var template = Handlebars.compile(source);
+            $("#cuportfoliolist").append(template(data));
+
+        });
+
+    }
+    function showSEVENPlus1(pageNo) {
+
+        $.getJSON("http://192.168.0.53:8000/controller/cvs/7eleven/plus1?pageNo="+pageNo+"&pageSize=9", function (data) {
+            if(!data.length){
+                $(".loadingArea").html("");
+                alert("마지막 페이지 입니다.");
+                return false;
+            }
+
+            var source = $("#cvsTemplate").html();
+            var template = Handlebars.compile(source);
+            $("#sevenportfoliolist").append(template(data));
+
+        });
+
+    }
+    function showSEVENPlus2(pageNo) {
+
+        $.getJSON("http://192.168.0.53:8000/controller/cvs/7eleven/plus2?pageNo="+pageNo+"&pageSize=9", function (data) {
+            if(!data.length){
+                $(".loadingArea").html("");
+                alert("마지막 페이지 입니다.");
+                return false;
+            }
+
+            var source = $("#cvsTemplate").html();
+            var template = Handlebars.compile(source);
+            $("#sevenportfoliolist").append(template(data));
+
+        });
+
+    }
+    function showSEVENGift(pageNo) {
+
+        $.getJSON("http://192.168.0.53:8000/controller/cvs/7eleven/add?pageNo="+pageNo+"&pageSize=9", function (data) {
+            if(!data.length){
+                $(".loadingArea").html("");
+                alert("마지막 페이지 입니다.");
+                return false;
+            }
+
+            var source = $("#giftTemplate").html();
+            var template = Handlebars.compile(source);
+            $("#sevenportfoliolist").append(template(data));
+
+        });
+
     }
 
     return {
-        showGS:showGS,
-        showCU:showCU,
-        showSEVEN:showSEVEN,
         showGSPlus1:showGSPlus1,
-        showGSPlus2:showGSPlus2
+        showGSPlus2:showGSPlus2,
+        showGSGift:showGSGift,
+        showCUPlus1:showCUPlus1,
+        showCUPlus2:showCUPlus2,
+        showCUGift:showCUGift,
+        showSEVENPlus1:showSEVENPlus1,
+        showSEVENPlus2:showSEVENPlus2,
+        showSEVENGift:showSEVENGift
     }
 })();
 

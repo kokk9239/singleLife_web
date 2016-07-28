@@ -277,6 +277,7 @@ Image credits: unsplash.com
   .cd-headline b{
 
 
+
   }
 }
 
@@ -299,7 +300,7 @@ Image credits: unsplash.com
  }
 
 .logo {
-  padding-top: 17px;
+  padding-top: 10px;
   width: 150px;
   font-size: 25px;
   color: #3498db;
@@ -310,7 +311,9 @@ Image credits: unsplash.com
   line-height: 1;
   margin-bottom: 10px;
 }
-
+ul.main_menu{
+    margin-top: 21px;
+}
 .main_menu li a:focus{
   outline: none;
 }
@@ -322,13 +325,20 @@ Image credits: unsplash.com
 
 @media only screen and (max-width: 766px) {
 
-.logo{
-  padding-top: 0;
+    .logo {
+        padding-top: 0;
+    }
+
+    .main_header {
+        padding-top: 8px;
+    }
+
+    .mobile-toggle {
+        padding-top: 15px;
+    }
+
 }
 
-.main_header { padding-top: 25px; }
-
-}
 
 
 
@@ -383,7 +393,7 @@ nav ul li {
 nav ul a {
   color: #888888;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .mobile-toggle {
@@ -539,8 +549,8 @@ scroll {  0% {
 
 
 .work_section{
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .work_section h1{
@@ -616,8 +626,8 @@ scroll {  0% {
 }
 
 .getit_section{
-    margin-top: 40px;
-  margin-bottom: 40px;
+    margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 
@@ -627,8 +637,8 @@ scroll {  0% {
 /* ===========Portfolio style===========*/
 
 .portfolio_area{
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .portfolio_section{
@@ -707,6 +717,11 @@ scroll {  0% {
     background: #e95a44;
     color:#fff;
   }
+
+.parcelImg img{
+    margin :10px;
+}
+
 
   /*편의점 필터 추가요*/
 
@@ -872,9 +887,8 @@ scroll {  0% {
     background: #782C90;
 
 }
-.portfolio .SEVEN{
+.portfolio .Seven{
     background: #1B8A5F;
-
 }
 
 .portfolio .text-title{
@@ -905,13 +919,23 @@ scroll {  0% {
     bottom:-40px;
 }
 
+
+/*택배 이미지 추가염*/
+
+.parcelImg .arrowRight{
+    width:30px;
+}
+
+.parcelImg img{
+    width: 100px;
+}
+
 /* #Tablet (Portrait) */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
   .container {
     width: 768px;
   }
 }
-
 
 /*  #Mobile (Portrait) - Note: Design for a width of 320px */
 @media only screen and (max-width: 767px) {
@@ -924,7 +948,6 @@ scroll {  0% {
     .filter{
         width:100%;
     }
-
 
   #portfoliolist .portfolio {
     width:48%;
@@ -947,8 +970,15 @@ scroll {  0% {
     display:none;
   }
 
-}
+   .parcelImg img{
+       width:13%;
+   }
 
+    .parcelImg .arrowRight{
+        width:50%;
+    }
+
+}
 
 /* #Mobile (Landscape) - Note: Design for a width of 480px */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
@@ -1003,8 +1033,8 @@ scroll {  0% {
 /*============== Blog style ==============*/
 
 .blog_area{
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .blog_section{
@@ -1021,7 +1051,7 @@ scroll {  0% {
 }
 
 .single_blog {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .single_blog a{
@@ -1064,7 +1094,7 @@ color: #282a2e;
 }
 
 .slider-text {
-  height: 100%;
+  height: 150px;
   padding: 40px 40px 25px 40px;
   background: #F5F6FA;
   color: #7a8188;
@@ -1203,24 +1233,29 @@ line-height: 45px !important;}
 
 .contact_area{
   background: url(../img/photography.png);
-}
 
-.contact_section{
-  margin-top: 60px;
 }
+.contact_section {
 
+}
 .contact_section h1{
-  color: #3498db;
-  text-transform: uppercase;
-  font-weight: 600;
+    font-weight: 600;
 }
-
-.contact_form{
-
+.contact_section h1 span{
+    color: #3498db;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+#parcelReceive h4,h3,h2,h1{
+    font-weight: 600;
+}
+#parcelReceive span{
+    font-weight: 600;
+    color: #3498db;
 }
 
 #contact_form{
-    margin-top: 50px;
+    margin-top: 20px;
     margin-bottom: 30px;
 }
 

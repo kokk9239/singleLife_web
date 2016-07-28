@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.gif">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Single Life</title>
 
@@ -85,13 +84,13 @@
 
 <header class="main_header">
     <div class="row">
-        <div class="content"><a class="logo" href="#">Single life</a>
+        <div class="content"><a class="logo" href="#"><img src="img/logo.png"/></a>
             <div class="mobile-toggle"><span></span> <span></span> <span></span></div>
             <nav>
                 <ul class="main_menu">
-                    <li><a href=".hero" id="homeBtn">Home</a></li>
+                    <li><a href="javascript: location.reload();" id="homeBtn">Home</a></li>
                     <li><a href=".service_area" id ="menuBtn">Menu</a></li>
-                    <li><a href = "#" data-toggle="modal" data-target="#loginModal">Login</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
 
                 </ul>
             </nav>
@@ -279,7 +278,7 @@
                         <h4>맛집</h4>
                         <h5>그들이 혼밥하는 이유</h5>
                     </div>
-                    <div class="item steelGray">
+                    <div class="item steelGray" id="travel">
                         <img src="img/icon/여행.png">
                         <h4>여행</h4>
                         <h5>혼자 갈 수 있는 여행 정보</h5>
@@ -302,24 +301,24 @@
                     <div class="item yellowLight" id="youtube">
                         <img src="img/icon/유투브.png" style="width: 120px;">
                         <h4>YouTube</h4>
-                        <h5>동영상 보기</h5>
+                        <h5>인기 동영상 보기</h5>
                     </div>
                     <div class="item dodgerBlue" id="watchWebtoon">
                         <img src="img/icon/웹툰.png">
                         <h4>WebToon</h4>
-                        <h5>웹툰 보기</h5>
+                        <h5>인기 웹툰 보기</h5>
                     </div>
-                    <div class="item yellow">
+                    <div class="item yellow" id="game">
                         <img src="img/icon/game.png">
                         <h4>혼자놀기</h4>
                         <h5>게임 및 컨텐츠</h5>
                     </div>
-                    <div class="item violet">
+                    <div class="item violet" id="recipe">
                         <img src="img/icon/1인분레시피.png">
                         <h4>1인분레시피</h4>
                         <h5>셀프 쿡팁 대공개</h5>
                     </div>
-                    <div class="item skyBlue">
+                    <div class="item skyBlue" id="parcel">
                         <img src="img/icon/택배.png">
                         <h4>택배 서비스</h4>
                         <h5>택배 알림 및 조회</h5>
@@ -445,19 +444,117 @@
     </div>
 </div>-->
 
-
+<!--혼밥div-->
 <div class="blog_area">
     <div class="container">
         <div class="row">
-            <div class="blog_section" id="main_content">
+            <div class="blog_section" id="honbap_content">
             </div>
         </div>
     </div>
 </div>
 
+<!--여행div-->
+<div class="blog_area">
+    <div class="container">
+        <div class="row">
+            <div class="blog_section" id="travel_content">
+            </div>
+        </div>
+    </div>
+</div>
+<!--유투브div-->
+<div class="blog_area">
+    <div class="container">
+        <div class="row">
+            <div class="blog_section" id="youtube_content">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--1인분레시피-->
+<div class="blog_area">
+    <div class="container">
+        <div class="row">
+            <div class="blog_section" id="recipe_content">
+            </div>
+        </div>
+    </div>
+</div>
+<!--게이무-->
+<div class="blog_area">
+    <div class="container">
+        <div class="row">
+            <div class="blog_section" id="game_content">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contact_area" id="parcelArea">
+    <div class="container">
+        <div class="row">
+            <div class="contact_section">
+                <h1> <span>택배 </span>서비스 </h1>
+                <div class="col-md-12">
+                    <div class="contact_form">
+                        <fieldset id="contact_form">
+                            <form id="mForm" >
+                                <select class="form-control" name="parcel">
+                                    <option value="">택배사를 선택해주세요</option>
+                                    <option value="01">우체국 택배</option>
+                                    <option value="04">CJ 대한통운</option>
+                                    <option value="05">한진 택배</option>
+                                    <option value="06">로젠 택배</option>
+                                    <option value="08">현대 택배</option>
+                                    <option value="10">KGB 택배</option>
+                                    <option value="11">일양 로지스</option>
+                                    <option value="12">EMS</option>
+                                    <option value="13">DHL</option>
+                                    <option value="14">UPS</option>
+                                    <option value="15">GTX 로지스</option>
+                                    <option value="16">한의사랑 택배</option>
+                                    <option value="17">천일 택배</option>
+                                    <option value="18">건영 택배</option>
+                                    <option value="21">Fedex</option>
+                                    <option value="22">대신 택배</option>
+                                    <option value="23">경동 택배</option>
+                                    <option value="24">CVSnet 편의점 택배</option>
+                                    <option value="25">TNT Express</option>
+                                    <option value="26">USPS</option>
+                                    <option value="28">GSMNtoN</option>
+                                    <option value="29">에어보이 익스프레스</option>
+                                    <option value="32">합동 택배</option>
+                                    <option value="33">DHL Global Mail</option>
+                                    <option value="34">i-Parcel</option>
+                                    <option value="37">범한판토스</option>
+                                    <option value="38">APEX(ECMS Express)</option>
+                                    <option value="39">KG 로지스택배</option>
+                                    <option value="40">굿투럭</option>
+                                </select>
+                                <br />
+                                <label for="invoice">
+                                    <input type="text" name="invoice" id="invoice" placeholder="송장번호를 입력하세요" />
+                                </label>
+                                <button class="btn btn-default" type="submit" id="submit_btn">조회</button>
+                            </form>
+
+                        </fieldset>
+                    </div>
+                    <div id="resultArea">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- parcel area end   -->
+
+
+
 <!-- loading icon area -->
 <div class ="loadingArea">
-
 </div>
 
 </div><!-- blog area end   -->
@@ -543,15 +640,57 @@
 </script>
 
 
+
+<script id="parcelTemplate" type="text/x-handlebars-template">
+
+        <div class="parcelImg">
+            <img id="level1off" src="img/parcel/Box.gif" ><img id="level1on" src="img/parcel/Box-color.gif"style="display:none"><img class="arrowRight" src="img/parcel/Right.png" style="width:30px">
+            <img id="level2off" src="img/parcel/truck1.gif" ><img id="level2on" src="img/parcel/truck1-color.gif"style="display:none"><img class="arrowRight" src="img/parcel/Right.png" style="width:30px">
+            <img id="level3off" src="img/parcel/house.gif" ><img id="level3on" src="img/parcel/house-color.gif"style="display:none"><img class="arrowRight" src="img/parcel/Right.png" style="width:30px">
+            <img id="level5off" src="img/parcel/truck2.gif" ><img id="level5on" src="img/parcel/truck2-color.gif"style="display:none"><img class="arrowRight" src="img/parcel/Right.png" style="width:30px">
+            <img id="level6off" src="img/parcel/finish.gif" ><img id="level6on" src="img/parcel/finish-color.gif"style="display:none">
+        </div>
+        <br />
+        <br />
+    <div id="parcelReceive">
+        <h3>받는 분 : <span>{{receiverName}}</span> / {{receiverAddr}}</h3>  <h3> 보내는 분 : <span>{{senderName}}</span></h3>
+    </div>
+    <table class="table table-striped">
+        <tr>
+            <th>처리일시</th>
+            <th>현재위치</th>
+            <th>배송상태</th>
+        </tr>
+        <input type="hidden" value="{{level}}" id="level"/>
+        {{#each trackingDetails}}
+        <tr>
+            <td>{{timeString}}</td>
+            <td>{{where}}</td>
+            <td>{{kind}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</script>
+
+
 <script src="js/playing/module-playing.js"></script>
 <script src="js/playing/event-playing.js"></script>
 <script src="js/cvs/module-cvs.js"></script>
 <script src="js/cvs/event-cvs.js"></script>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script src="js/vendor/address.js"></script>
 <script src ="js/common/module-common.js"></script>
 <script src ="js/honbap/event-honbap.js"></script>
 <script src ="js/honbap/module-honbap.js"></script>
+<script src ="js/travel/event-travel.js"></script>
+<script src ="js/travel/module-travel.js"></script>
+<script src ="js/recipe/event-recipe.js"></script>
+<script src ="js/recipe/module-recipe.js"></script>
+<script src ="js/parcel/event-parcel.js"></script>
+<script src ="js/parcel/module-parcel.js"></script>
+<script src ="js/game/event-game.js"></script>
+<script src ="js/game/module-game.js"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="js/vendor/address.js"></script>
+
 
 </body>
 </html>

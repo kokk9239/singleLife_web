@@ -5,30 +5,26 @@ $(document).ready(function () {
     var pageNo= 1;
 
     // webtoon
-    $("#honbap").on("click", function () {
+    $("#recipe").on("click", function () {
 
         $("#travel_content").html("");
         $("#youtube_content").html("");
-        $("#recipe_content").html("");
-        $("#invoice").val("");
-        $("select[name=parcel]").val("");
-
-
+        $("#honbap_content").html("");
+        $("#parcelArea").css("display","none");
+        $("#resultArea").html("");
 
         pageNo=1;
         $(".work_area").css("display", "none");
-        $("#parcelArea").css("display","none");
-        $("#resultArea").html("");
         common_module.moveYoutubeMenu();
-        honbap_module.honbapTitle();
-        honbap_module.showHonbap(1);
+        recipe_module.recipeTitle();
+        recipe_module.showRecipe(1);
 
         $(window).unbind('scroll');
 
         $(window).scroll(function(){
             if (Math.ceil($(window).scrollTop()) == $(document).height() - $(window).height()) {
                 pageNo +=1;
-                honbap_module.showHonbap(pageNo);
+                recipe_module.showRecipe(pageNo);
                 $(".loadingArea").html('<img src = "img/preloader.gif" style="width: 60px; height: 60px">');
             }
         });

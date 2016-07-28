@@ -104,7 +104,7 @@ var cvs_module = (function () {
     }
     function showSEVENPlus1(pageNo) {
 
-        $.getJSON("http://192.168.0.53:8000/controller/cvs/7eleven/plus1?pageNo="+pageNo+"&pageSize=9", function (data) {
+        $.getJSON("http://192.168.0.53:8000/controller/cvs/seven/plus1?pageNo="+pageNo+"&pageSize=9", function (data) {
             if(!data.length){
                 $(".loadingArea").html("");
                 alert("마지막 페이지 입니다.");
@@ -120,7 +120,7 @@ var cvs_module = (function () {
     }
     function showSEVENPlus2(pageNo) {
 
-        $.getJSON("http://192.168.0.53:8000/controller/cvs/7eleven/plus2?pageNo="+pageNo+"&pageSize=9", function (data) {
+        $.getJSON("http://192.168.0.53:8000/controller/cvs/seven/plus2?pageNo="+pageNo+"&pageSize=9", function (data) {
             if(!data.length){
                 $(".loadingArea").html("");
                 alert("마지막 페이지 입니다.");
@@ -136,7 +136,7 @@ var cvs_module = (function () {
     }
     function showSEVENGift(pageNo) {
 
-        $.getJSON("http://192.168.0.53:8000/controller/cvs/7eleven/add?pageNo="+pageNo+"&pageSize=9", function (data) {
+        $.getJSON("http://192.168.0.53:8000/controller/cvs/seven/add?pageNo="+pageNo+"&pageSize=9", function (data) {
             if(!data.length){
                 $(".loadingArea").html("");
                 alert("마지막 페이지 입니다.");

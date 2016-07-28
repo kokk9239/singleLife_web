@@ -11,10 +11,19 @@ $(document).ready(function () {
 
     $("#portfolioArea").css("display", "none");
 
+
     $("#watchWebtoon").on("click", function () {
+
+        $("#travel_content").html("");
+        $("#youtube_content").html("");
+        $("#recipe_content").html("");
+        $("#honbap_content").html("");
+
+        $("#parcelArea").css("display","none");
+        $("#resultArea").html("");
+
         $(window).unbind('scroll');
         $("#portfolioArea").css("display", "block");
-        $("#main_content").html("");
         $(".work_area").css("display", "none");
         common_module.moveWebtoonMenu();
         play_module.showWebtoon();
@@ -22,8 +31,15 @@ $(document).ready(function () {
 
     // youtube
     $("#youtube").on("click", function () {
+
+        $("#travel_content").html("");
+        $("#honbap_content").html("");
+        $("#recipe_content").html("");
+
         pageNo=1;
         $(".work_area").css("display", "none");
+        $("#parcelArea").css("display","none");
+
         common_module.moveYoutubeMenu();
         play_module.youtubeTitle();
         play_module.showYoutube(pageNo);

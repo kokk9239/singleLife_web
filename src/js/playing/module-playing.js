@@ -41,7 +41,7 @@ var play_module = (function () {
     }
 
     function youtubeTitle(){
-        $("#main_content").html("<h1>YouTube<span> 인기동영상</span></h1>");
+        $("#youtube_content").html("<h1>YouTube<span> 인기동영상</span></h1>");
     }
 
     function showYoutube(pageNo) {
@@ -69,7 +69,7 @@ var play_module = (function () {
                         + "<input type = 'hidden' value = '" + tag + "' id = 'tag" + number + "'/>"
                         + "</div></a></div>";
 
-                    $("#main_content").append(content);
+                    $("#youtube_content").append(content);
                 }
 
             }

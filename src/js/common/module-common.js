@@ -5,7 +5,7 @@
 var common_module = (function () {
 
     function moveYoutubeMenu() {
-        var position = $("#main_content").offset();
+        var position = $(".blog_area").offset();
         $("html, body").animate({scrollTop: position.top-100},500);
     }
 

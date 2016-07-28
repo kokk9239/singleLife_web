@@ -11,8 +11,20 @@ $(document).ready(function () {
     $(".work_area").css("display", "none");
 
     $("#cvs").on("click", function () {
+
+        $("#honbap_content").html("");
+        $("#travel_content").html("");
+        $("#youtube_content").html("");
+        $("#recipe_content").html("");
+
+        $("#parcelArea").css("display","none");
+        $("#resultArea").html("");
+
+        // work_area 편의점 보이게
         $(".work_area").css("display", "block");
-        $("#main_content").html("");
+        // main_content 혼밥, 1인분레시피,여행
+        /*$("#main_content").html("");*/
+
         $("#portfolioArea").css("display", "none");
         common_module.moveCvsMenu();
         $("#gsoneplus").click();
@@ -125,7 +137,6 @@ $(document).ready(function () {
         common_module.moveCvsMenu();
         cvs_module.showCUPlus2(pageNo);
         $(window).unbind('scroll');
-
         $(window).scroll(function () {
             if (Math.ceil($(window).scrollTop()) == $(document).height() - $(window).height()) {
                 pageNo += 1;

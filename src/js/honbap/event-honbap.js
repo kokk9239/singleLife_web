@@ -12,11 +12,11 @@ $(document).ready(function () {
         $("#recipe_content").html("");
         $("#invoice").val("");
         $("select[name=parcel]").val("");
-
+        $("#prodInfo_content").css("display", "none");
 
 
         pageNo=1;
-        $(".work_area").css("display", "none");
+        $("#cvs_content").css("display", "none");
         $("#parcelArea").css("display","none");
         $("#resultArea").html("");
         common_module.moveYoutubeMenu();

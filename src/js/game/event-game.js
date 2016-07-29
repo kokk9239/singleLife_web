@@ -8,13 +8,13 @@ $(document).ready(function(){
         $("#honbap_content").html("");
         $("#recipe_content").html("");
 
-        $(".work_area").css("display", "none");
+        $("#cvs_content").css("display", "none");
         $("#parcelArea").css("display","none");
-
+        $("#prodInfo_content").css("display", "none");
         common_module.moveYoutubeMenu();
         game_module.gameTitle();
         game_module.showGame();
         $(window).unbind('scroll');
         $("#portfolioArea").css("display", "none");
-    }); 
+    });
 });

@@ -840,6 +840,46 @@ scroll {  0% {
     float:left;
     overflow:hidden;
 }
+#coupang_portfoliolist .portfolio{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    width:25%;
+    margin:1%;
+    display:none;
+    float:left;
+    overflow:hidden;
+}
+#tmon_portfoliolist .portfolio{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    width:25%;
+    margin:1%;
+    display:none;
+    float:left;
+    overflow:hidden;
+}
+#wmp_portfoliolist .portfolio{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    width:25%;
+    margin:1%;
+    display:none;
+    float:left;
+    overflow:hidden;
+}
+#auction_portfoliolist .portfolio{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    width:25%;
+    margin:1%;
+    display:none;
+    float:left;
+    overflow:hidden;
+}
 
   .portfolio-wrapper {
     overflow:hidden;
@@ -890,6 +930,19 @@ scroll {  0% {
 .portfolio .Seven{
     background: #1B8A5F;
 }
+.portfolio .coupang{
+    background: #3D82F7;
+}
+.portfolio .tmon{
+    background: #FE5300;
+}
+.portfolio .auction{
+    background: #E8001E;
+}
+.portfolio .wmp{
+    background: #DA5461;
+}
+
 
 .portfolio .text-title{
         color: #333333;
@@ -963,6 +1016,22 @@ scroll {  0% {
     margin:5%;
   }
   #sevenportfoliolist .portfolio {
+    width:100%;
+    margin:5%;
+  }
+  #auction_portfoliolist .portfolio {
+    width:100%;
+    margin:5%;
+  }
+  #coupang_portfoliolist .portfolio {
+    width:100%;
+    margin:5%;
+  }
+  #wmp_portfoliolist .portfolio {
+    width:100%;
+    margin:5%;
+  }
+  #tmon_portfoliolist .portfolio {
     width:100%;
     margin:5%;
   }

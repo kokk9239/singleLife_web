@@ -26,7 +26,7 @@ var game_module = (function(){
                         + "<p><i class='fa fa-user'></i> By game</p>"
                         + "</div></a></div>";
 
-                    $("#game_content").append(content);
+                    $("  #game_content").append(content);
                 }
 
             }

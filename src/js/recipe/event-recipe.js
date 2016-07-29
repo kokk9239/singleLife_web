@@ -12,9 +12,9 @@ $(document).ready(function () {
         $("#honbap_content").html("");
         $("#parcelArea").css("display","none");
         $("#resultArea").html("");
-
+        $("#prodInfo_content").css("display", "none");
         pageNo=1;
-        $(".work_area").css("display", "none");
+        $("#cvs_content").css("display", "none");
         common_module.moveYoutubeMenu();
         recipe_module.recipeTitle();
         recipe_module.showRecipe(1);

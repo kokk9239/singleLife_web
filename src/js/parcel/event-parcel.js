@@ -9,10 +9,10 @@ $(document).ready(function () {
     $("#parcel").on("click", function () {
         $(window).unbind('scroll');
         $("#parcelArea").css("display","block");
-        $(".work_area").css("display", "none");
+        $("#cvs_content").css("display", "none");
         $("#portfolioArea").css("display", "none");
         $(".loadingArea").css("display","none");
-
+        $("#prodInfo_content").css("display", "none");
         $("#travel_content").html("");
         $("#youtube_content").html("");
         $("#recipe_content").html("");

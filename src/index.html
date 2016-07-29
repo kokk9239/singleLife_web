@@ -88,7 +88,7 @@
             <div class="mobile-toggle"><span></span> <span></span> <span></span></div>
             <nav>
                 <ul class="main_menu">
-                    <li><a href="javascript: location.reload();" id="homeBtn">Home</a></li>
+                    <li><a href=".hero" id="homeBtn">Home</a></li>
                     <li><a href=".service_area" id ="menuBtn">Menu</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
 
@@ -283,7 +283,7 @@
                         <h4>여행</h4>
                         <h5>혼자 갈 수 있는 여행 정보</h5>
                     </div>
-                    <div class="item darkCyan">
+                    <div class="item darkCyan" id="prodInfo">
                         <img src="img/icon/쇼핑.png">
                         <h4>구매 상품 정보</h4>
                         <h5>소용량 패키지 상품 정보</h5>
@@ -332,10 +332,10 @@
     </div>
 </div>
 <!--워크에어리어-->
-<div class="work_area">
+<div class="work_area" >
     <div class="container">
         <div class="row">
-            <div class="work_section">
+            <div class="work_section" id="cvs_content">
                 <h1 class="wow bounceInLeft"><span>편의점</span> 정보</h1>
                 <div class="map_wrap">
                 <div id="map" style="width:100%;height:400px;position:relative;overflow:hidden;"></div>
@@ -412,6 +412,76 @@
     </div>
 </div><!-- work area end   -->
 
+
+
+<!--구매 상품 정보 에어리어-->
+<div class="work_area" >
+    <div class="container">
+        <div class="row">
+            <div class="work_section" id="prodInfo_content">
+                <h1 class="wow bounceInLeft"><span>1인 쇼핑</span> 정보</h1>
+                <div class="col-md-12 wow bounceInRight animated">
+                    <div class="bs-example">
+                        <ul class="nav nav-tabs">
+                            <li class="active cvsTab" ><a data-toggle="tab" id="coupangTab" href="#section_coupang"><img src="img/prodInfo/쿠팡.gif"></a></li>
+                            <li class="cvsTab" ><a data-toggle="tab" id="tmonTab" href="#section_tmon" ><img src="img/prodInfo/티몬.gif"></a></li>
+                            <li class="cvsTab" ><a data-toggle="tab" id="auctionTab" href="#section_auction" ><img src="img/prodInfo/옥션.gif"></a></li>
+                            <li class="cvsTab" ><a data-toggle="tab" id="wmpTab" href="#section_wmp" ><img src="img/prodInfo/위메프.gif"></a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="section_coupang" class="tab-pane fade in active">
+                                <div class="container" id="coupang_content">
+                                    <div class="portfolio_section">
+                                        <div class="col-md-12 portfolio_top">
+                                        </div>
+                                    </div>
+                                    <div id="coupang_portfoliolist">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="section_tmon" class="tab-pane fade">
+                                <div class="container" id="tmon_content">
+                                    <div class="portfolio_section">
+                                        <div class="col-md-12 portfolio_top">
+                                        </div>
+                                    </div>
+                                    <div id="tmon_portfoliolist">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="section_auction" class="tab-pane fade">
+                                <div class="container" id="auction_content">
+                                    <div class="portfolio_section">
+                                        <div class="col-md-12 portfolio_top">
+                                        </div>
+                                    </div>
+                                    <div id="auction_portfoliolist">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="section_wmp" class="tab-pane fade">
+                                <div class="container" id="wmp_content">
+                                    <div class="portfolio_section">
+                                        <div class="col-md-12 portfolio_top">
+                                        </div>
+                                    </div>
+                                    <div id="wmp_portfoliolist">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- work area end   -->
+
+<!--웹툰에어리어-->
 <div class="portfolio_area" id="portfolioArea">
     <div class="container" id="webtoon_content">
         <div class="portfolio_section">
@@ -583,6 +653,8 @@
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=4e9d2d29d4f31c561cf8f670129384ae&libraries=services,clusterer"></script>
 <script src ="js/vendor/mapAPI.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+
+<!--웹툰템플릿-->
 <script id="template" type="text/x-handlebars-template">
     {{#each .}}
     <div class="portfolio {{updateday}} mix_all" data-cat="{{updateday}}">
@@ -600,6 +672,8 @@
     </div>
     {{/each}}
 </script>
+
+<!--편의점템플릿-->
 <script id="cvsTemplate" type="text/x-handlebars-template">
     {{#each .}}
     <div class="portfolio {{event}} mix_all" data-cat="{{event}}" style="display:inline-block; opacity:1;">
@@ -617,6 +691,8 @@
     </div>
     {{/each}}
 </script>
+
+<!--편의점 증정상품 템플릿-->
 <script id="giftTemplate" type="text/x-handlebars-template">
         {{#each .}}
     <div class="portfolio {{event}} mix_all" data-cat="{{event}}" style="display:inline-block; opacity:1;">
@@ -639,8 +715,7 @@
     {{/each}}
 </script>
 
-
-
+<!--택배 템플릿-->
 <script id="parcelTemplate" type="text/x-handlebars-template">
 
         <div class="parcelImg">
@@ -672,6 +747,25 @@
     </table>
 </script>
 
+<!--구매 상품 정보 템플릿-->
+<script id="prodInfoTemplate" type="text/x-handlebars-template">
+    {{#each .}}
+    <div class="portfolio {{event}} mix_all" data-cat="{{event}}" style="display:inline-block; opacity:1;">
+        <div class="portfolio-wrapper">
+            <img src="http://192.168.0.53:8000/controller/play/getimg?image={{image}}" alt = "" style="width:200px; height:200px" />
+            <div class="label">
+                <div class="label-text">
+                    <a href = "{{link}}" target="_blank" class="text-title">{{title}}</a>
+                    <span class="text-category">{{price}}원</span>
+                    <input type = "hidden" value="{{store}}">
+                </div>
+                <div class="label-bg {{store}}"></div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+
 
 <script src="js/playing/module-playing.js"></script>
 <script src="js/playing/event-playing.js"></script>
@@ -688,6 +782,8 @@
 <script src ="js/parcel/module-parcel.js"></script>
 <script src ="js/game/event-game.js"></script>
 <script src ="js/game/module-game.js"></script>
+<script src ="js/prodInfo/event-prodInfo.js"></script>
+<script src ="js/prodInfo/module-prodInfo.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="js/vendor/address.js"></script>
 

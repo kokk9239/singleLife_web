@@ -8,7 +8,7 @@ $(document).ready(function () {
     var pageNo = 1;
 
     //편의점
-    $(".work_area").css("display", "none");
+    $("#cvs_content").css("display", "none");
 
     $("#cvs").on("click", function () {
 
@@ -16,19 +16,17 @@ $(document).ready(function () {
         $("#travel_content").html("");
         $("#youtube_content").html("");
         $("#recipe_content").html("");
-
+        $("#prodInfo_content").css("display", "none");
         $("#parcelArea").css("display","none");
         $("#resultArea").html("");
 
         // work_area 편의점 보이게
-        $(".work_area").css("display", "block");
-        // main_content 혼밥, 1인분레시피,여행
-        /*$("#main_content").html("");*/
-
-        $("#portfolioArea").css("display", "none");
+        $("#cvs_content").css("display", "block");
+        //편의점 초기화
+        $("#portfoliolist").html("");
         common_module.moveCvsMenu();
-        $("#gsoneplus").click();
         map_module.showMap("GS25");
+        $("#gsoneplus").click();
     });
 
     $("#gsTab").on("click",function(){

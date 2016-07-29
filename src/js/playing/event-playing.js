@@ -21,10 +21,10 @@ $(document).ready(function () {
 
         $("#parcelArea").css("display","none");
         $("#resultArea").html("");
-
+        $("#prodInfo_content").css("display", "none");
         $(window).unbind('scroll');
         $("#portfolioArea").css("display", "block");
-        $(".work_area").css("display", "none");
+        $("#cvs_content").css("display", "none");
         common_module.moveWebtoonMenu();
         play_module.showWebtoon();
     });
@@ -35,9 +35,10 @@ $(document).ready(function () {
         $("#travel_content").html("");
         $("#honbap_content").html("");
         $("#recipe_content").html("");
+        $("#prodInfo_content").html("");
 
         pageNo=1;
-        $(".work_area").css("display", "none");
+        $("#cvs_content").css("display", "none");
         $("#parcelArea").css("display","none");
 
         common_module.moveYoutubeMenu();

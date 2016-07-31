@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
     <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.gif">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Single Life</title>
@@ -90,8 +91,8 @@
                 <ul class="main_menu">
                     <li><a href=".hero" id="homeBtn">Home</a></li>
                     <li><a href=".service_area" id ="menuBtn">Menu</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
-
+                    <li><a href="#" data-toggle="modal" data-target="#loginModal" id="menu_login">LOGIN</a></li>
+                    <li><a href="#" id="menu_logout" onclick="logoutAjax()" style="display: none;">LOGOUT</a></li>
                 </ul>
             </nav>
         </div>
@@ -127,42 +128,49 @@
                         </div>
                         <div class="error"></div>
                         <div class="form loginBox">
-                            <form method="post" action="/login" accept-charset="UTF-8">
-                                <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                                <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                            <form id="loginForm" method="post" action="http://localhost:8000/user/loginPostForm" accept-charset="UTF-8" target="zero">
+                                <input id="email" class="form-control" type="text" placeholder="Email" name="email" value="kim135792@naver.com">
+                                <input id="password" class="form-control" type="password" placeholder="Password" name="password" value="123456">
+                                <input id="useCookie" type="hidden" placeholder="useCookie" name="useCookie" value="true">
+                                <input id="uuidchk" class="form-control" type="text" placeholder="uuidchk" name="uuidchk" style="display:none;">
+                                <input id="marketChk" type="hidden" value="">
                                 <input class="btn btn-default btn-login" type="button" value="Login" onclick="loginAjax()">
                             </form>
+                            <iframe id ="frame" name="zero" style="width:100px; height: 100px; border: 0px"></iframe>
                         </div>
                     </div>
                 </div>
                 <div class="box">
                     <div class="content registerBox" style="display:none;">
-                        <div class="form">
-                            <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8">
-                                <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                                <input id="password" class="form-control" type="password" placeholder="Password" name="password">
-                                <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
-                                <select class="form-control" id="gender">
-                                      <option value="default">select sex</option>
-                                      <option value="male">male</option>
-                                      <option value="female">female</option>
+                        <div class="form registerBoxForm">
+                            <form method="post" html="{:multipart=>true}" data-remote="true" action="http://localhost:8000/board/createaccount" accept-charset="UTF-8" , id="formname1">
+                                <input id="email_register" class="form-control" type="text" placeholder="Email" name="email">
+                                <input id="password_register" class="form-control" type="password" placeholder="Password" name="password">
+                                <input id="password_confirmation" class="form-control" type="password"
+                                       placeholder="Repeat Password" name="password_confirmation">
+                                <select class="form-control" id="gender" name="gender">
+                                    <option value="default">select sex</option>
+                                    <option value="male">male</option>
+                                    <option value="female">female</option>
                                 </select>
                                 <div class="form-group">
                                     <div class="input-group date">
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" placeholder="Birthday" class="form-control pull-right" id="datepicker">
+                                        <input type="text" placeholder="Birthday" class="form-control pull-right" id="datepicker" name="birthday">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" type="text" id="sample3_postcode" placeholder="우편번호"> -
+                                    <input class="form-control" type="text" id="sample3_postcode" placeholder="우편번호" name="postcode"> -
                                     <input class="form-control" type="button" onclick="sample3_execDaumPostcode()" value="우편번호 찾기"><br>
-
                                     <div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
-                                        <img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+                                        <img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png"
+                                             id="btnFoldWrap"
+                                             style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1"
+                                             onclick="foldDaumPostcode()" alt="접기 버튼">
                                     </div>
-                                    <input class="form-control" type="text" id="sample3_address" class="d_form large" placeholder="주소">
+                                    <input class="form-control" type="text" id="sample3_address" class="d_form large" placeholder="주소" name="address">
                                 </div>
                                 <input class="btn btn-default btn-register" type="submit" value="Create account" name="commit">
                             </form>
@@ -288,7 +296,7 @@
                         <h4>구매 상품 정보</h4>
                         <h5>소용량 패키지 상품 정보</h5>
                     </div>
-                    <div class="item dodgerBlue">
+                    <div class="item dodgerBlue" id="market" data-toggle="modal" data-target="#loginModal">
                         <img src="img/icon/장터.png">
                         <h4>중고장터</h4>
                         <h5>중고 물품 판매 및 구매</h5>
@@ -653,6 +661,15 @@
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=4e9d2d29d4f31c561cf8f670129384ae&libraries=services,clusterer"></script>
 <script src ="js/vendor/mapAPI.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+
+<!-- Market Move Script -->
+<script>
+    $("#market").click(function () {
+        if(sessionStorage.getItem('user')) {
+            location.href="http://localhost:8000/board/list";
+        }
+    })
+</script>
 
 <!--웹툰템플릿-->
 <script id="template" type="text/x-handlebars-template">

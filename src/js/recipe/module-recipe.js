@@ -24,9 +24,7 @@ var recipe_module = (function () {
                 if (image != undefined) {
                     content = " <div class='single_blog col-md-4 slider-content ' id='blog-content'>"
                         + "<a href='"+link+"' target='_blank' >"
-                        + "<div style = 'width:343px; height:200px; overflow:hidden'>"
                         + "<img src='http://192.168.0.53:8000/controller/play/getimg?image=" + image + "' style='width:343px; height:200px;'/>"
-                        + "</div>"
                         + "<div class='slider-text'>"
                         + "<h4>" + title + "</h4>"
                         + "<p><i class='fa fa-user'></i> By Blog <i class='fa fa-clock-o'></i> " + regdate + "</p>"

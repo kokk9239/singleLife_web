@@ -16,8 +16,9 @@ $(document).ready(function () {
         $("#travel_content").html("");
         $("#youtube_content").html("");
         $("#recipe_content").html("");
+        $("#game_content").html("");
         $("#cvs_content").css("display", "none");
-
+        
         $("#parcelArea").css("display","none");
         $("#resultArea").html("");
 

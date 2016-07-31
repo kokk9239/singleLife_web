@@ -10,6 +10,7 @@ $(document).ready(function () {
         $("#travel_content").html("");
         $("#youtube_content").html("");
         $("#recipe_content").html("");
+        $("#game_content").html("");
         $("#invoice").val("");
         $("select[name=parcel]").val("");
         $("#prodInfo_content").css("display", "none");

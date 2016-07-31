@@ -18,6 +18,7 @@ $(document).ready(function () {
         $("#youtube_content").html("");
         $("#recipe_content").html("");
         $("#honbap_content").html("");
+        $("#game_content").html("");
 
         $("#parcelArea").css("display","none");
         $("#resultArea").html("");
@@ -36,6 +37,7 @@ $(document).ready(function () {
         $("#honbap_content").html("");
         $("#recipe_content").html("");
         $("#prodInfo_content").html("");
+        $("#game_content").html("");
 
         pageNo=1;
         $("#cvs_content").css("display", "none");

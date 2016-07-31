@@ -17,6 +17,7 @@ $(document).ready(function () {
         $("#youtube_content").html("");
         $("#recipe_content").html("");
         $("#honbap_content").html("");
+        $("#game_content").html("");
     });
 
     $("#mForm").submit(function(e){

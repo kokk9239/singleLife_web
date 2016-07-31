@@ -60,8 +60,8 @@
             height: 300px;
         }
         #webtoon img{
-            width: 120px;
-            height: 140px;
+            width: 160px;
+            height: 180px;
         }
         .nav-tabs img{
             width: 60px;
@@ -658,17 +658,21 @@
 <script id="template" type="text/x-handlebars-template">
     {{#each .}}
     <div class="portfolio {{updateday}} mix_all" data-cat="{{updateday}}">
+        <a href="http://{{link}}"target="_blank">
         <div class="portfolio-wrapper">
             <img src="http://192.168.0.53:8000/controller/play/getimg?image={{image}}" alt = ""  style="width:120px; height:130px;"/>
             <div class="label">
                 <div class="label-text">
-                    <a href="http://{{link}}"target="_blank" class="text-title">{{title}}</a>
+                    <div><i class="glyphicon glyphicon-heart"></i>
+                    <a href="http://{{link}}"target="_blank" class="text-title">{{title}}</a></div>
                     <span class="text-category">{{writer}}</span>
                     <input type = "hidden" value="{{origin}}" id="dataOrigin">
                 </div>
                 <div class="label-bg {{origin}}"></div>
+
             </div>
         </div>
+        </a>
     </div>
     {{/each}}
 </script>

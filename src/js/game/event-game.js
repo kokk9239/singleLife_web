@@ -7,6 +7,9 @@ $(document).ready(function(){
         $("#travel_content").html("");
         $("#honbap_content").html("");
         $("#recipe_content").html("");
+        $("#youtube_content").html("");
+
+
 
         $("#cvs_content").css("display", "none");
         $("#parcelArea").css("display","none");

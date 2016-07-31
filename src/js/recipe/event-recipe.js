@@ -10,6 +10,7 @@ $(document).ready(function () {
         $("#travel_content").html("");
         $("#youtube_content").html("");
         $("#honbap_content").html("");
+        $("#game_content").html("");
         $("#parcelArea").css("display","none");
         $("#resultArea").html("");
         $("#prodInfo_content").css("display", "none");

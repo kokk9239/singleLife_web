@@ -10,6 +10,7 @@ $(document).ready(function () {
         $("#honbap_content").html("");
         $("#youtube_content").html("");
         $("#recipe_content").html("");
+        $("#game_content").html("");
         $("#parcelArea").css("display","none");
         $("#resultArea").html("");
         $("#prodInfo_content").css("display", "none");

@@ -799,7 +799,7 @@ scroll {  0% {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
-  width:12%;
+  width:20%;
   margin:1%;
   display:none;
   float:left;
@@ -892,6 +892,8 @@ scroll {  0% {
     max-width:100%;
     position: relative;
   }
+
+
 
 
 

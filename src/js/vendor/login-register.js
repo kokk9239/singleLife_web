@@ -118,7 +118,7 @@ function loginAjax(){
     // uuid 없을경우
     if(uuid.val()==""){
         $.ajax({
-            url: "http://localhost:8000/board/login",
+            url: "http://192.168.0.5:8000/board/login",
             data: { email : email, password : password },
             dataType: 'json',
             type: 'post',
@@ -152,7 +152,7 @@ function loginAjax(){
 
     } else {                                                    // uuid 있을경우
         $.ajax({
-            url: "http://localhost:8000/board/changechk",
+            url: "http://192.168.0.5:8000/board/changechk",
             data: { email : email, password : password, uuid : uuid.val() },
             dataType: 'json',
             type: 'post',
@@ -211,7 +211,7 @@ function createAccount() {
     var address = $("#sample3_address").val();
 
     $.ajax({
-        url: "http://localhost:8000/board/createaccount",
+        url: "http://192.168.0.5:8000/board/createaccount",
         data: { email : email, password : password, gender : gender, birthday : birthday, postcode : postcode, address : address},
         dataType: 'text',
         type: 'POST',

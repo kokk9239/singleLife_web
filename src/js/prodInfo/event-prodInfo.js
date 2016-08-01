@@ -21,7 +21,7 @@ $(document).ready(function () {
         
         $("#parcelArea").css("display","none");
         $("#resultArea").html("");
-
+        $("#webtoon_content").css("display", "none");
         $("#portfoliolist").html("");
 
         $(window).unbind('scroll');

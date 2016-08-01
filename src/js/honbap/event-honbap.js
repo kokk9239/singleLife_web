@@ -33,6 +33,6 @@ $(document).ready(function () {
                 $(".loadingArea").html('<img src = "img/preloader.gif" style="width: 60px; height: 60px">');
             }
         });
-        $("#portfolioArea").css("display", "none");
+        $("#webtoon_content").css("display", "none");
     });
 });

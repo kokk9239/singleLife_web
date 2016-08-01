@@ -10,7 +10,7 @@ $(document).ready(function () {
         $(window).unbind('scroll');
         $("#parcelArea").css("display","block");
         $("#cvs_content").css("display", "none");
-        $("#portfolioArea").css("display", "none");
+        $("#webtoon_content").css("display", "none");
         $(".loadingArea").css("display","none");
         $("#prodInfo_content").css("display", "none");
         $("#travel_content").html("");

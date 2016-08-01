@@ -18,6 +18,6 @@ $(document).ready(function(){
         game_module.gameTitle();
         game_module.showGame();
         $(window).unbind('scroll');
-        $("#portfolioArea").css("display", "none");
+        $("#webtoon_content").css("display", "none");
     });
 });

@@ -55,7 +55,7 @@ $(document).ready(function () {
         $("#gsportfoliolist").html("");
         /*$(".work_area").css("display", "block");*/
         $("#main_content").html("");
-        $("#portfolioArea").css("display", "none");
+        $("#webtoon_content").css("display", "none");
         common_module.moveCvsMenu();
         cvs_module.showGSPlus1(pageNo);
         $(window).unbind('scroll');
@@ -75,7 +75,7 @@ $(document).ready(function () {
         $("#gsportfoliolist").html("");
         /*$(".work_area").css("display", "block");*/
         $("#main_content").html("");
-        $("#portfolioArea").css("display", "none");
+        $("#webtoon_content").css("display", "none");
         common_module.moveCvsMenu();
         cvs_module.showGSPlus2(pageNo);
         $(window).unbind('scroll');
@@ -94,7 +94,7 @@ $(document).ready(function () {
         $("#gsportfoliolist").html("");
         /*$(".work_area").css("display", "block");*/
         $("#main_content").html("");
-        $("#portfolioArea").css("display", "none");
+        $("#webtoon_content").css("display", "none");
         common_module.moveCvsMenu();
         cvs_module.showGSGift(pageNo);
         $(window).unbind('scroll');
@@ -113,7 +113,7 @@ $(document).ready(function () {
         $("#cuportfoliolist").html("");
         /*$(".work_area").css("display", "block");*/
         $("#main_content").html("");
-        $("#portfolioArea").css("display", "none");
+        $("#webtoon_content").css("display", "none");
         common_module.moveCvsMenu();
         cvs_module.showCUPlus1(pageNo);
         $(window).unbind('scroll');
@@ -132,7 +132,7 @@ $(document).ready(function () {
         $("#cuportfoliolist").html("");
         /*$(".work_area").css("display", "block");*/
         $("#main_content").html("");
-        $("#portfolioArea").css("display", "none");
+        $("#webtoon_content").css("display", "none");
         common_module.moveCvsMenu();
         cvs_module.showCUPlus2(pageNo);
         $(window).unbind('scroll');
@@ -150,7 +150,7 @@ $(document).ready(function () {
         $("#cuportfoliolist").html("");
         /*$(".work_area").css("display", "block");*/
         $("#main_content").html("");
-        $("#portfolioArea").css("display", "none");
+        $("#webtoon_content").css("display", "none");
         common_module.moveCvsMenu();
         cvs_module.showCUGift(pageNo);
         $(window).unbind('scroll');
@@ -169,7 +169,7 @@ $(document).ready(function () {
         $("#sevenportfoliolist").html("");
         /*$(".work_area").css("display", "block");*/
         $("#main_content").html("");
-        $("#portfolioArea").css("display", "none");
+        $("#webtoon_content").css("display", "none");
         common_module.moveCvsMenu();
         cvs_module.showSEVENPlus1(pageNo);
         $(window).unbind('scroll');
@@ -188,7 +188,7 @@ $(document).ready(function () {
         $("#sevenportfoliolist").html("");
         /*$(".work_area").css("display", "block");*/
         $("#main_content").html("");
-        $("#portfolioArea").css("display", "none");
+        $("#webtoon_content").css("display", "none");
         common_module.moveCvsMenu();
         cvs_module.showSEVENPlus2(pageNo);
         $(window).unbind('scroll');
@@ -206,7 +206,7 @@ $(document).ready(function () {
         $("#sevenportfoliolist").html("");
         /*$(".work_area").css("display", "block");*/
         $("#main_content").html("");
-        $("#portfolioArea").css("display", "none");
+        $("#webtoon_content").css("display", "none");
         common_module.moveCvsMenu();
         cvs_module.showSEVENGift(pageNo);
         $(window).unbind('scroll');

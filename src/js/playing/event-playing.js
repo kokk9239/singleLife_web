@@ -9,11 +9,10 @@ $(document).ready(function () {
 
     // webtoon
 
-    $("#portfolioArea").css("display", "none");
+    $("#webtoon_content").css("display", "none");
 
 
     $("#watchWebtoon").on("click", function () {
-
         $("#travel_content").html("");
         $("#youtube_content").html("");
         $("#recipe_content").html("");
@@ -24,10 +23,14 @@ $(document).ready(function () {
         $("#resultArea").html("");
         $("#prodInfo_content").css("display", "none");
         $(window).unbind('scroll');
-        $("#portfolioArea").css("display", "block");
+        $("#webtoon_content").css("display", "block");
         $("#cvs_content").css("display", "none");
         common_module.moveWebtoonMenu();
-        play_module.showWebtoon();
+        play_module.showNaverWebtoon();
+    });
+    $("#daumTab").on("click",function(){
+       common_module.moveWebtoonMenu();
+        play_module.showDaumWebtoon();
     });
 
     // youtube

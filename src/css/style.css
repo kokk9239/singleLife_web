@@ -717,6 +717,53 @@ scroll {  0% {
     background: #e95a44;
     color:#fff;
   }
+  /*웹툰 필터 추가*/
+#naverFilters {
+  margin:1%;
+  padding:0;
+  list-style:none;
+}
+
+  #naverFilters li {
+    float:left;
+  }
+
+  #naverFilters li span {
+    display: block;
+    padding:5px 20px;
+    text-decoration:none;
+    color:#666;
+    cursor: pointer;
+  }
+
+  #naverFilters li span.active {
+    background: #28DC18;
+    color:#fff;
+  }
+
+#daumFilters {
+  margin:1%;
+  padding:0;
+  list-style:none;
+}
+
+  #daumFilters li {
+    float:left;
+  }
+
+  #daumFilters li span {
+    display: block;
+    padding:5px 20px;
+    text-decoration:none;
+    color:#666;
+    cursor: pointer;
+  }
+
+  #daumFilters li span.active {
+    background: #618EFC;
+    color:#fff;
+  }
+
 
 .parcelImg img{
     margin :10px;
@@ -796,6 +843,26 @@ scroll {  0% {
 
 
 #portfoliolist .portfolio {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  width:20%;
+  margin:1%;
+  display:none;
+  float:left;
+  overflow:hidden;
+}
+#naver_portfoliolist .portfolio {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  width:20%;
+  margin:1%;
+  display:none;
+  float:left;
+  overflow:hidden;
+}
+#daum_portfoliolist .portfolio {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;

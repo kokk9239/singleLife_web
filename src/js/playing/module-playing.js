@@ -22,43 +22,32 @@ var play_module = (function () {
 
     */
 
-    function showWebtoon() {
-
+    function showNaverWebtoon() {
         $.ajax({
-            url : "http://192.168.0.53:8000/controller/play/webtoon?pageNo=1&pageSize=1000",
+            url : "http://192.168.0.53:8000/controller/play/webtoon?origin=naver&pageNo=1&pageSize=1000",
             dataType : "JSON",
             async:false,
             success: function (data) {
-                if(!data.length){
-                    $(".loadingArea").html("");
-                    return false;
-                }
-               $("#category_top").html("<h1> 웹툰</h1> <p>요일별로 선택해주세요</p>");
 
                 var source = $("#template").html();
                 var template = Handlebars.compile(source);
-                $("#portfoliolist").html(template(data));
-                $("#monBtn").click();
+                $("#naver_portfoliolist").html(template(data));
+                $("#naverMonBtn").click();
             }
         });
-
-
-
-
-         // $.getJSON("http://192.168.0.53:8000/controller/play/webtoon?pageNo=1&pageSize=1000", function (data) {
-         //
-         //     if(!data.length){
-         //         $(".loadingArea").html("");
-         //         return false;
-         //     }
-         //    $("#category_top").html("<h1> 웹툰</h1> <p>요일별로 선택해주세요</p>");
-         //
-         //     var source = $("#template").html();
-         //     var template = Handlebars.compile(source);
-         //     $("#portfoliolist").html(template(data));
-         //     $("#monBtn").click();
-         //
-         // });
+    }
+    function showDaumWebtoon() {
+        $.ajax({
+            url : "http://192.168.0.53:8000/controller/play/webtoon?origin=daum&pageNo=1&pageSize=1000",
+            dataType : "JSON",
+            async:false,
+            success: function (data) {
+                var source = $("#template").html();
+                var template = Handlebars.compile(source);
+                $("#daum_portfoliolist").html(template(data));
+                $("#daumMonBtn").click();
+            }
+        });
     }
 
     function youtubeTitle(){
@@ -114,7 +103,8 @@ var play_module = (function () {
     }
 
     return {
-        showWebtoon: showWebtoon,
+        showNaverWebtoon: showNaverWebtoon,
+        showDaumWebtoon:showDaumWebtoon,
         showYoutube: showYoutube,
         youtubeModal: youtubeModal,
         clearModal: clearModal,

@@ -10,7 +10,7 @@ var common_module = (function () {
     }
 
     function moveWebtoonMenu() {
-        var position = $("#category_top").offset();
+        var position = $("#webtoon_content").offset();
         $("html, body").animate({scrollTop: position.top-100},500);
     }
     function moveCvsMenu() {

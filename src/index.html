@@ -92,6 +92,7 @@
                     <li><a href=".hero" id="homeBtn">Home</a></li>
                     <li><a href=".service_area" id ="menuBtn">Menu</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#loginModal" id="menu_login">LOGIN</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#mypage" id="menu_mypage">MYPAGE</a></li>
                     <li><a href="#" id="menu_logout" onclick="logoutAjax()" style="display: none;">LOGOUT</a></li>
                 </ul>
             </nav>
@@ -105,7 +106,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">로그인</h4>
+                <h4 class="modal-title">Login</h4>
             </div>
             <div class="modal-body">
                 <div class="box">
@@ -221,6 +222,59 @@
     </div>
 </div>
 
+
+<!--마이페이지 모달 추가-->
+<div class="modal fade login" id="mypage">
+    <div class="modal-dialog login animated">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">MyPAGE</h4>
+            </div>
+            <div class="modal-body">
+                <div class="box">
+                    <div class="content registerBox">
+                        <div class="form">
+                            <form method="post" html="{:multipart=>true}" data-remote="true"  accept-charset="UTF-8">
+                                <img src="img/userDefaultImg.jpg" class="img-circle" style="width:100px;height:100px"/>
+                                <p id="mypage_email" class="form-control-static"  name="email" ></p>
+                                <div class="error"></div>
+                                <input id="mypage_password" class="form-control" type="password" placeholder="Password" name="password">
+                                <input id="mypage_conPassword" class="form-control" type="password"
+                                       placeholder="Repeat Password" name="password_confirmation">
+                                <select class="form-control" id="mypage_gender" name="gender" disabled>
+                                    <option value="default">select sex</option>
+                                    <option value="male" >male</option>
+                                    <option value="female">female</option>
+                                </select>
+                                <div class="form-group">
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" placeholder="Birthday" class="form-control pull-right" id="mypage_datepicker" name="birthday" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" id="mypage_postcode" placeholder="우편번호" name="postcode"> -
+                                    <input class="form-control" type="button" onclick="sample3_execDaumPostcode()" value="우편번호 찾기"><br>
+                                    <div id="mypage_wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+                                        <img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png"
+                                             id="mypage_btnFoldWrap"
+                                             style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1"
+                                             onclick="foldDaumPostcode()" alt="접기 버튼">
+                                    </div>
+                                    <input class="form-control" type="text" id="mypage_address" class="d_form large" placeholder="주소" name="address">
+                                </div>
+                                <input class="btn btn-default btn-modify" value="Modify Account" name="commit" id="updateBtn">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">

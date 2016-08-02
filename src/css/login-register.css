@@ -168,10 +168,28 @@
     text-transform: uppercase;
     width: 100%;
 }
+
+.registerBox .btn-modify{
+    background-color: #F0AD4E;
+    border-color: #F0AD4E;
+    border-width: 0;
+    color: #FFFFFF;
+    display: block;
+    margin: 0 auto;
+    padding: 15px 50px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
 .login .btn-login:hover, .registerBox .btn-register:hover{
     background-color: #00A4E4;
     color: #FFFFFF;
 }
+.registerBox .btn-modify:hover{
+    background-color: #EAB975;
+    color: #FFFFFF;
+}
+
 .login .form-control{
     border-radius: 3px;
     background-color: rgba(0, 0, 0, 0.09);

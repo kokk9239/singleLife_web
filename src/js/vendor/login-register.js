@@ -139,6 +139,7 @@ function loginAjax(){
                 } else if(data.email!=null && data.chk!=null){
                     $(".close").click();
                     $("#market").attr("data-target","");
+                    $("#menu_mypage").css("display","block");
                     $("#menu_logout").css("display","block");
                     $("#menu_login").css("display","none");
                     sessionStorage.setItem("user",data.email);
@@ -167,6 +168,7 @@ function loginAjax(){
                     sessionStorage.setItem("user",email);
                     sessionStorage.setItem("pass",password);
                     $("#market").attr("data-target","");
+                    $("#menu_mypage").css("display","block");
                     $("#menu_logout").css("display","block");
                     $("#menu_login").css("display","none");
                     //market login...
@@ -186,6 +188,7 @@ function loginAjax(){
 function logoutAjax(){
     sessionStorage.removeItem("user");
     $("#market").attr("data-target","#loginModal");
+    $("#menu_mypage").css("display","none");
     $("#menu_logout").css("display","none");
     $("#menu_login").css("display","block");
 
@@ -240,6 +243,7 @@ $(function() {
     if(sessionStorage.getItem("user"))
     {
         $("#market").attr("data-target","");
+        $("#menu_mypage").css("display","block");
         $("#menu_logout").css("display","block");
         $("#menu_login").css("display","none");
     }
@@ -292,4 +296,56 @@ $(function() {
     });
 
 
+});
+
+
+
+/*마이페이지 추가*/
+
+/*마이페이지 정보 조회*/
+
+$("#menu_mypage").on("click",function(){
+
+    var email = sessionStorage.getItem("user");
+
+    $.ajax({
+        url: "http://192.168.0.5:8000/board/loginAjax",
+        data: { email : email},
+        dataType: 'JSON',
+        type: 'POST',
+
+        success: function(data){
+
+            $("#mypage_email").html(data.email);
+            $("#mypage_password").val(data.password);
+            $("#mypage_conPassword").val(data.password);
+            $("#mypage_gender").val(data.gender);
+            $("#mypage_datepicker").val(data.birthday);
+            $("#mypage_postcode").val(data.postcode);
+            $("#mypage_address").val(data.address);
+
+        }
+    });
+
+});
+
+
+$("#updateBtn").on("click", function(){
+
+    var mEmail = $("#mypage_email").html();
+
+    var mPass = $("#mypage_password").val();
+    var mbirthday = $("#mypage_datepicker").val();
+    var mPostcode = $("#mypage_postcode").val();
+    var mAddress = $("#mypage_address").val();
+
+    $.ajax({
+        url: "http://192.168.0.5:8000/board/updateAjax",
+        data: { email : mEmail, password : mPass, birthday : mbirthday, postcode : mPostcode, address : mAddress},
+        dataType: 'JSON',
+        type: 'POST',
+        success: function(){
+            alert("회원정보가 수정되었긔");
+        }
+    });
 });

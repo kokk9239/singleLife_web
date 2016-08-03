@@ -8,6 +8,7 @@
  */
 // submit 회원가입
 var error = $(".error");
+
 $(".registerBoxForm").submit(function(event){
     event.preventDefault();
 
@@ -19,6 +20,8 @@ $(".registerBoxForm").submit(function(event){
     var postCode =  $("#sample3_postcode").val();
     var address =  $("#sample3_address").val();
     var regEmail = /^[\w]{4,}@[\w]+(\.[\w-]+){1,3}$/;
+    var file = $("#wizard-picture").val();
+    alert(file);
 
     if(!email){
         error.html("이메일을 입력하세요.");
@@ -68,23 +71,37 @@ $(".registerBoxForm").submit(function(event){
 
 function showRegisterForm(){
     $('.loginBox').fadeOut('fast',function(){
+
+        $('.login .modal-dialog').css("width", "800px");
+        $('.loginTitle').css("display","none");
+
         $('.registerBox').fadeIn('fast');
         $('.login-footer').fadeOut('fast',function(){
             $('.register-footer').fadeIn('fast');
         });
-        $('.modal-title').html('Register with');
+        $('.modal-title').html('Register');
     });
     $('.error').removeClass('alert alert-danger').html('');
 
 }
 function showLoginForm(){
     $('#loginModal .registerBox').fadeOut('fast',function(){
+
+        $('.loginTitle').css("display","block");
+        $('.login .modal-dialog').css("width", "350px");
         $('.loginBox').fadeIn('fast');
         $('.register-footer').fadeOut('fast',function(){
             $('.login-footer').fadeIn('fast');
         });
 
-        $('.modal-title').html('Login with');
+        $('.modal-title').html('Login');
+        $("#email_register").val("");
+        $("#password_register").val("");
+        $("#password_confirmation").val("");
+        $("#datepicker").val("");
+        $("#sample3_postcode").val("");
+        $("#sample3_address").val("");
+
     });
     $('.error').removeClass('alert alert-danger').html('');
 }
@@ -112,6 +129,7 @@ function loginAjax(){
     var password = $("#password").val();
     var uuid = $("#uuidchk");
     var market = $("#marketchk").val();
+
 
     console.log("loginAjax called.....");
 
@@ -153,9 +171,9 @@ function loginAjax(){
 
     } else {                                                    // uuid 있을경우
         $.ajax({
-            url: "http://192.168.0.5:8000/board/changechk",
+            url: "http://192.168.0.5:8000/board/changeChk",
             data: { email : email, password : password, uuid : uuid.val() },
-            dataType: 'json',
+            dataType: 'text',
             type: 'post',
 
             success: function(data){                                    // 로그인
@@ -279,12 +297,12 @@ $(function() {
         error.html(msg);
     });
 
-    // $(".close").click(function(){
-    //     var uuid = $("#uuidchk");
-    //     uuid.fadeOut('fast');
-    //     $("#email").val("");
-    //     $("#password").val("");
-    // });
+    $(".close").click(function(){
+        var uuid = $("#uuidchk");
+        uuid.fadeOut('fast');
+        // $("#email").val("");
+        // $("#password").val("");
+    });
 
     $("#loginForm").submit(function(){
         console.log("login from......try")
@@ -301,6 +319,14 @@ $(function() {
 
 
 /*마이페이지 추가*/
+
+$(document).ready(function () {
+    if(sessionStorage.getItem("user")){
+        $("#menu_mypage").css("display","block");
+    }else{
+        $("#menu_mypage").css("display","none");
+    }
+});
 
 /*마이페이지 정보 조회*/
 
@@ -320,32 +346,140 @@ $("#menu_mypage").on("click",function(){
             $("#mypage_password").val(data.password);
             $("#mypage_conPassword").val(data.password);
             $("#mypage_gender").val(data.gender);
-            $("#mypage_datepicker").val(data.birthday);
+            $("#datepicker").val(data.birthday);
             $("#mypage_postcode").val(data.postcode);
             $("#mypage_address").val(data.address);
 
+/*            if(data.developer) {
+                block;
+            } else {
+                none;
+            }*/
         }
     });
 
+    $.ajax({
+        url: "http://192.168.0.5:8000/controller/api/getapikey",
+        data: { email : email},
+        type: 'POST',
+        dataType : 'text',
+        success: function(data){
+            if(data == 'Fail') {
+                $("#ipInput").css('display', 'block');
+            } else {
+                $("#ipInput").css('display', 'none');
+            }
+        },
+    });
+
+
+});
+
+
+// 마이페이지 패스워드가 6~16자 메시지
+$("input[id=mypage_password]").keyup(function () {
+    var msg = "";
+    var password = $(this).val();
+    if(password.length < 6 || password.length > 16){
+        msg = "6~16자 영문 대 소문자, 숫자를 사용하세요.";
+    }
+    error.html(msg);
+});
+
+// 마이페이지 패스워드 확인 불일치
+$("input[id=mypage_conPassword]").blur(function(){
+    var msg = "";
+    var password = $("#mypage_password").val();
+    var repassword = $(this).val();
+    if(password != repassword){
+        msg = "입력하신 패스워드가 일치하지 않습니다.";
+    }
+    error.html(msg);
 });
 
 
 $("#updateBtn").on("click", function(){
 
+
+
     var mEmail = $("#mypage_email").html();
 
     var mPass = $("#mypage_password").val();
+    /*var mConPass = $("#mypage_conPassword").val();*/
     var mbirthday = $("#mypage_datepicker").val();
     var mPostcode = $("#mypage_postcode").val();
     var mAddress = $("#mypage_address").val();
 
+    if(!mPostcode){
+        error.html("우편번호를 입력하세요.");
+        return false;
+    }
+    if(!mAddress){
+        error.html("주소를 입력하세요.");
+        return false;
+    }
+
     $.ajax({
         url: "http://192.168.0.5:8000/board/updateAjax",
         data: { email : mEmail, password : mPass, birthday : mbirthday, postcode : mPostcode, address : mAddress},
-        dataType: 'JSON',
         type: 'POST',
         success: function(){
-            alert("회원정보가 수정되었긔");
+            error.html("");
+            alert("회원정보가 수정되었습니다.");
+        },
+        fail: function(){
+            error.html("");
+            alert("회원정보 수정이 실패하였습니다.");
         }
     });
 });
+
+
+/*api키 받아오기*/
+$("#apiBtn").on("click", function(){
+    var mEmail = $("#mypage_email").html();
+    var ipAddress = $("#ipAddress").val();
+    var result = $("#apiResult");
+
+    if(!ipAddress){
+        result.html("사용할 아이피 주소를 입력해주세요.");
+        return false;
+    }
+
+    $.ajax({
+        url: "http://192.168.0.5:8000/controller/api/registkey",
+        data: { email : mEmail, ip : ipAddress},
+        type: 'POST',
+        dataType : 'text',
+        success: function(data){
+            result.html(data);
+
+        },
+        fail: function(){
+            alert("회원정보 수정이 실패하였습니다.");
+        }
+    });
+
+});
+
+$("#getApiBtn").click(function () {
+    var mEmail = $("#mypage_email").html();
+    var result = $("#getApi");
+
+    $.ajax({
+        url: "http://192.168.0.5:8000/controller/api/getapikey",
+        data: { email : mEmail},
+        type: 'POST',
+        dataType : 'text',
+        success: function(data){
+            result.html(data);
+
+        },
+        fail: function(){
+            alert("회원정보 수정이 실패하였습니다.");
+        }
+    });
+});
+
+
+

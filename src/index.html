@@ -20,6 +20,7 @@
     <link href="css/custom.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link href="css/gsdk-base.css" rel="stylesheet" />
 
     <!-- font awesome-->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -102,7 +103,7 @@
 </header>
 <!--modal 시작-->
 <div class="modal fade login" id="loginModal">
-    <div class="modal-dialog login animated">
+    <div class="modal-dialog login animated ">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -110,8 +111,12 @@
             </div>
             <div class="modal-body">
                 <div class="box">
-                    <div class="content">
-                        <div class="social">
+                    <div class="contentModal">
+                        <div class="loginTitle">
+                        <img src="img/logo.png">
+                        </div>
+                        <div class="error"></div>
+                        <!--<div class="social">
                             <a class="circle github" href="/auth/github">
                                 <i class="fa fa-github fa-fw"></i>
                             </a>
@@ -126,8 +131,7 @@
                             <div class="line l"></div>
                             <span>or</span>
                             <div class="line r"></div>
-                        </div>
-                        <div class="error"></div>
+                        </div>-->
                         <div class="form loginBox">
                             <form id="loginForm" method="post" action="http://192.168.0.5:8000/user/loginPostForm" accept-charset="UTF-8" target="zero">
                                 <input id="email" class="form-control" type="text" placeholder="Email" name="email" value="kim135792@naver.com">
@@ -137,14 +141,14 @@
                                 <input id="marketChk" type="hidden" value="">
                                 <input class="btn btn-default btn-login" type="button" value="Login" onclick="loginAjax()">
                             </form>
-                            <iframe id ="frame" name="zero" style="width:100px; height: 100px; border: 0px"></iframe>
+                            <iframe id ="frame" name="zero" style="width:100px; height: 0px; border: 0px"></iframe>
                         </div>
                     </div>
                 </div>
                 <div class="box">
-                    <div class="content registerBox" style="display:none;">
-                        <div class="form registerBoxForm">
-                            <form method="post" html="{:multipart=>true}" data-remote="true" action="http://192.168.0.5:8000/board/createaccount" accept-charset="UTF-8" , id="formname1">
+                    <div class="contentModal registerBox" style="display:none;">
+<!--                        <div class="form registerBoxForm">
+                            <form method="post" html="{:multipart=>true}" data-remote="true" action="http://192.168.0.5:8000/board/createaccount" accept-charset="UTF-8", id="formname1">
                                 <input id="email_register" class="form-control" type="text" placeholder="Email" name="email">
                                 <input id="password_register" class="form-control" type="password" placeholder="Password" name="password">
                                 <input id="password_confirmation" class="form-control" type="password"
@@ -163,19 +167,153 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" type="text" id="sample3_postcode" placeholder="우편번호" name="postcode"> -
-                                    <input class="form-control" type="button" onclick="sample3_execDaumPostcode()" value="우편번호 찾기"><br>
+                                    <input class="form-control" type="text" id="sample3_postcode" placeholder="Postcode" name="postcode"> -
+                                    <input class="form-control" type="button" onclick="sample3_execDaumPostcode()" value="Find Postcode"><br>
                                     <div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
                                         <img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png"
                                              id="btnFoldWrap"
                                              style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1"
                                              onclick="foldDaumPostcode()" alt="접기 버튼">
                                     </div>
-                                    <input class="form-control" type="text" id="sample3_address" class="d_form large" placeholder="주소" name="address">
+                                    <input class="form-control" type="text" id="sample3_address" class="d_form large" placeholder="Address" name="address">
                                 </div>
                                 <input class="btn btn-default btn-register" type="submit" value="Create account" name="commit">
                             </form>
-                        </div>
+                        </div>-->
+                        <div class="form registerBoxForm">
+                                <div class="card wizard-card ct-wizard-blue" id="wizardProfile">
+                                    <form action="http://192.168.0.5:8000/board/createaccount" method="post" html="{:multipart=>true}" data-remote="true" accept-charset="UTF-8", id="formname1" enctype="multipart/form-data">
+                                        <div class="wizard-header">
+                                            <h3>
+                                                <b>BUILD</b> YOUR PROFILE <br>
+                                                <small>This information will let us know more about you.</small>
+                                            </h3>
+                                        </div>
+                                        <ul>
+                                            <li><a href="#about" data-toggle="tab">About</a></li>
+                                            <li><a href="#account" data-toggle="tab">Account</a></li>
+                                            <li><a href="#address" data-toggle="tab">Address</a></li>
+                                        </ul>
+
+                                        <div class="tab-content">
+                                            <div class="tab-pane" id="about">
+                                                <div class="row">
+                                                    <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
+                                                    <div class="col-sm-4 col-sm-offset-1">
+                                                        <div class="picture-container">
+                                                            <div class="picture">
+                                                                <img src="img/default-avatar.png" class="picture-src" id="wizardPicturePreview" title=""/>
+                                                                <input type="file" id="wizard-picture">
+                                                            </div>
+                                                            <h6>Choose Picture</h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <input id="email_register" name="email" type="email" class="form-control" placeholder="Email">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input id="password_register" class="form-control" type="password" placeholder="Password" name="password">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="confirm_password">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="account">
+                                                <h4 class="info-text"> What are you doing? (checkboxes) </h4>
+                                                <div class="row">
+                                                    <div class="col-sm-10 col-sm-offset-1" style='margin-left: 140px;'>
+                                                        <div class="col-sm-4">
+                                                            <div class="choice" data-toggle="wizard-checkbox">
+                                                                <input type="checkbox" name="jobb" value="User">
+                                                                <div class="icon">
+                                                                    <i class="glyphicon glyphicon-user"></i>
+                                                                </div>
+                                                                <h6>User</h6>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="choice" data-toggle="wizard-checkbox">
+                                                                <input type="checkbox" name="jobb" value="Develop">
+                                                                <div class="icon">
+                                                                    <i class="glyphicon glyphicon-pencil"></i>
+                                                                </div>
+                                                                <h6>Develop</h6>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="address">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h4 class="info-text"> Are you living in a nice area? </h4>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group" style="margin-bottom: 0px;">
+                                                            <div class="input-group date">
+                                                                <div class="input-group-addon">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </div>
+                                                                <input type="text" placeholder="Birthday" class="form-control" id="datepicker" name="birthday">
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+           <!--                                         <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <select class="form-control" id="gender" name="gender">
+                                                                <option value="">select sex</option>
+                                                                <option value="male">male</option>
+                                                                <option value="female">female</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>-->
+                                                    <div class="col-sm-6">
+
+                                                        <div class="form-group">
+                                                            <input class="form-control" type="text" id="sample3_postcode" placeholder="Postcode" name="postcode">
+                                                        </div>
+                                                    </div>
+                                                    <br/>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <input class="form-control" type="button" onclick="sample3_execDaumPostcode()" value="Find Postcode"><br>
+                                                            <div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+                                                                <img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png"
+                                                                     id="btnFoldWrap"
+                                                                     style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1"
+                                                                     onclick="foldDaumPostcode()" alt="접기 버튼">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br/>
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                            <input class="form-control" type="text" id="sample3_address" class="d_form large" placeholder="Address" name="address">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wizard-footer">
+                                            <div class="pull-right">
+                                                <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Next' />
+                                                <input type='submit' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Finish' />
+                                            </div>
+                                            <div class="pull-left">
+                                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Previous' />
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -229,7 +367,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">MyPAGE</h4>
+                <h4 class="modal-title">MyPage</h4>
             </div>
             <div class="modal-body">
                 <div class="box">
@@ -237,7 +375,7 @@
                         <div class="form">
                             <form method="post" html="{:multipart=>true}" data-remote="true"  accept-charset="UTF-8">
                                 <img src="img/userDefaultImg.jpg" class="img-circle" style="width:100px;height:100px"/>
-                                <p id="mypage_email" class="form-control-static"  name="email" ></p>
+                                <p id="mypage_email" class="form-control-static" name="email" ></p>
                                 <div class="error"></div>
                                 <input id="mypage_password" class="form-control" type="password" placeholder="Password" name="password">
                                 <input id="mypage_conPassword" class="form-control" type="password"
@@ -252,21 +390,34 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" placeholder="Birthday" class="form-control pull-right" id="mypage_datepicker" name="birthday" disabled>
+                                        <input type="text" placeholder="Birthday" class="form-control pull-right" id="datepicker" name="birthday" >
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" type="text" id="mypage_postcode" placeholder="우편번호" name="postcode"> -
-                                    <input class="form-control" type="button" onclick="sample3_execDaumPostcode()" value="우편번호 찾기"><br>
-                                    <div id="mypage_wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+                                    <input class="form-control" type="text" id="mypage_postcode" placeholder="Postcode" name="postcode"> -
+                                    <input class="form-control" type="button" onclick="sample3_execDaumPostcode1()" value="Find Postcode"><br>
+                                    <div id="mypagwrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
                                         <img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png"
                                              id="mypage_btnFoldWrap"
                                              style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1"
-                                             onclick="foldDaumPostcode()" alt="접기 버튼">
+                                             onclick="foldDaumPostcode1()" alt="접기 버튼">
                                     </div>
-                                    <input class="form-control" type="text" id="mypage_address" class="d_form large" placeholder="주소" name="address">
+                                    <input class="form-control" type="text" id="mypage_address" class="d_form large" placeholder="Address" name="address">
                                 </div>
-                                <input class="btn btn-default btn-modify" value="Modify Account" name="commit" id="updateBtn">
+
+                                <div class="form-group" id="ipInput">
+                                    <p>개발용 아이피주소 입력창</p>
+                                    <input class="form-control" type="text" id="ipAddress" placeholder="ex)192.168.0.**" name="ipAddress">
+                                    <button class="btn btn-primary" type="button"  name="commit" id="apiBtn">GET API</button>
+                                    <div id="apiResult"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="button" name="commit" id="getApiBtn" >API Check</button>
+                                    <div id="getApi"></div>
+                                </div>
+
+                                <input class="btn btn-modify" value="Modify Account" name="commit" id="updateBtn">
                             </form>
                         </div>
                     </div>
@@ -549,10 +700,10 @@
                 <div class="col-md-12 wow bounceInRight animated">
                     <div class="bs-example">
                         <ul class="nav nav-tabs">
-                            <li class="active cvsTab" ><a data-toggle="tab" id="coupangTab" href="#section_coupang"><img src="img/prodInfo/쿠팡.gif"></a></li>
-                            <li class="cvsTab" ><a data-toggle="tab" id="tmonTab" href="#section_tmon" ><img src="img/prodInfo/티몬.gif"></a></li>
-                            <li class="cvsTab" ><a data-toggle="tab" id="auctionTab" href="#section_auction" ><img src="img/prodInfo/옥션.gif"></a></li>
-                            <li class="cvsTab" ><a data-toggle="tab" id="wmpTab" href="#section_wmp" ><img src="img/prodInfo/위메프.gif"></a></li>
+                            <li class="active shopTab" ><a data-toggle="tab" id="coupangTab" href="#section_coupang"><img src="img/prodInfo/쿠팡.gif"></a></li>
+                            <li class="shopTab" ><a data-toggle="tab" id="tmonTab" href="#section_tmon" ><img src="img/prodInfo/티몬.gif"></a></li>
+                            <li class="shopTab" ><a data-toggle="tab" id="auctionTab" href="#section_auction" ><img src="img/prodInfo/옥션.gif"></a></li>
+                            <li class="shopTab" ><a data-toggle="tab" id="wmpTab" href="#section_wmp" ><img src="img/prodInfo/위메프.gif"></a></li>
                         </ul>
                         <div class="tab-content">
                             <div id="section_coupang" class="tab-pane fade in active">
@@ -927,6 +1078,10 @@
 <script src ="js/prodInfo/module-prodInfo.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="js/vendor/address.js"></script>
+<script src="js/vendor/jquery.bootstrap.wizard.js"></script>
+<script src="js/vendor/wizard.js"></script>
+<script src="js/vendor/jquery.validate.min.js"></script>
+
 
 
 </body>

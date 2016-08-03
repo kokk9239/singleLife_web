@@ -1,4 +1,4 @@
-* { box-sizing: border-box; }
+/** { box-sizing: border-box; }*/
 
 body {
   padding: 0;
@@ -102,13 +102,20 @@ a:hover{
   padding: 50px 2% 50px;
 }
 
+
+.contentModal {
+    max-width: 940px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px;
+}
+
 .main_header .row .content { padding: 0; }
 
 
 .dark {
   background: #333;
 }
-
 
 
 /*
@@ -247,6 +254,7 @@ Image credits: unsplash.com
 @media screen and (max-width: 640px){
     .hero h1 { font-size: 4em; }
 }
+
 .main_header {
   position: fixed;
   top: 0px;
@@ -1104,6 +1112,15 @@ scroll {  0% {
     width:100%;
     margin:5%;
   }
+
+    #naver_portfoliolist .portfolio {
+        width:40%;
+        margin:5%;
+    }
+    #daum_portfoliolist .portfolio {
+        width:40%;
+        margin:5%;
+    }
   #ads {
     display:none;
   }
@@ -1115,6 +1132,31 @@ scroll {  0% {
     .parcelImg .arrowRight{
         width:50%;
     }
+
+    .shopTab {
+        width: 25%;
+    }
+   .shopTab #coupangTab{
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .shopTab #tmonTab{
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .shopTab #auctionTab{
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .shopTab #wmpTab{
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .login .modal-dialog{
+        width: 100%;
+    }
+
 
 }
 
@@ -1446,14 +1488,15 @@ line-height: 45px !important;}
     border-radius: 5px;
     font-weight: normal;
 }
-.error{
+/*.error{
     background: #F44C4C;
     padding: 10px;
     margin-bottom: 10px;
-     border: 1px solid #FFCACA;
-     border-radius: 5px;
-     font-weight: normal;
- }
+    border: 1px solid #FFCACA;
+    border-radius: 5px;
+    font-weight: normal;
+    color: white;
+ }*/
 
   .contact_text{
     text-align: right;
@@ -1518,6 +1561,8 @@ line-height: 45px !important;}
   margin-bottom: 30px;
   text-align: center;
 }
+
+
 /*맵 스타일*/
 .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
@@ -1656,3 +1701,12 @@ img {
     margin-left: 100px;
 }
 */
+
+/*마이페이지 추가*/
+#mypage_email{
+    font-size: 17px;
+    font-weight: 500;
+}
+.loginTitle{
+    margin-bottom: 50px;
+}

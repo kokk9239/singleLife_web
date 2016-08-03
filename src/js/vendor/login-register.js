@@ -47,10 +47,10 @@ $(".registerBoxForm").submit(function(event){
         error.html("입력하신 패스워드가 일치하지 않습니다.");
         return false;
     }
-    if(gender=="default"){
-        error.html("성별을 선택하세요.");
-        return false;
-    }
+    // if(gender=="default"){
+    //     error.html("성별을 선택하세요.");
+    //     return false;
+    // }
     if(!birthday){
         error.html("생일을 선택하세요.");
         return false;
@@ -163,6 +163,8 @@ function loginAjax(){
                     sessionStorage.setItem("user",data.email);
                     sessionStorage.setItem("pass",data.password);
                     $("#loginForm").submit();
+                    $("#profile_mypage").attr("src","http://192.168.0.5:8000/displayProfile" +
+                        "?fileName="+data.profilepath);
                     // 로그아웃
                 }
 
@@ -224,19 +226,29 @@ function shakeModal(msg){
 
 // 회원가입
 function createAccount() {
+    var formData = new FormData();
     var email = $("#email_register").val();
     var password = $("#password_register").val();
     var gender = $('select option:selected').val();
     var birthday = $("#datepicker").val();
     var postcode = $("#sample3_postcode").val();
     var address = $("#sample3_address").val();
+    var profilepath = $("#profilepath").val();
+    formData.append("email",email);
+    formData.append("password",password);
+    formData.append("birthday",birthday);
+    formData.append("postcode",postcode);
+    formData.append("address",address);
+    formData.append("profilepath",profilepath);
 
     $.ajax({
         url: "http://192.168.0.5:8000/board/createaccount",
-        data: { email : email, password : password, gender : gender, birthday : birthday, postcode : postcode, address : address},
+        // data: { email : email, password : password, birthday : birthday, postcode : postcode, address : address, profilepath: profilepath},
+        data: formData,
         dataType: 'text',
         type: 'POST',
-
+        processData:false,
+        contentType:false,
         success: function(){
             $(".close").click();
             alert("email로 가서 uuid 인증하세요.");
@@ -246,11 +258,10 @@ function createAccount() {
     var email =  $("#email_register").val("");
     var password = $("#password_register").val("");
     var repassword = $("#password_confirmation").val("");
-    var gender =  $('select option:selected').val("");
     var birthday = $("#datepicker").val("");
     var postCode =  $("#sample3_postcode").val("");
     var address =  $("#sample3_address").val("");
-
+    var profilepath = $("#profilepath").val("");
     openLoginModal();
 }
 
@@ -332,6 +343,7 @@ $(document).ready(function () {
 
 $("#menu_mypage").on("click",function(){
 
+
     var email = sessionStorage.getItem("user");
 
     $.ajax({
@@ -349,6 +361,8 @@ $("#menu_mypage").on("click",function(){
             $("#datepicker").val(data.birthday);
             $("#mypage_postcode").val(data.postcode);
             $("#mypage_address").val(data.address);
+            $("#profile_mypage").attr("src","http://192.168.0.5:8000/displayProfile" +
+                "?fileName="+data.profilepath);
 
 /*            if(data.developer) {
                 block;

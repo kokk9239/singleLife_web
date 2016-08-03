@@ -182,7 +182,8 @@
                         </div>-->
                         <div class="form registerBoxForm">
                                 <div class="card wizard-card ct-wizard-blue" id="wizardProfile">
-                                    <form action="http://192.168.0.5:8000/board/createaccount" method="post" html="{:multipart=>true}" data-remote="true" accept-charset="UTF-8", id="formname1" enctype="multipart/form-data">
+                                    <form action="http://192.168.0.5:8000/board/createaccount" method="post" html="{:multipart=>true}" data-remote="true" accept-charset="UTF-8", id="formname1"
+                                    enctype="multipart/form-data">
                                         <div class="wizard-header">
                                             <h3>
                                                 <b>BUILD</b> YOUR PROFILE <br>
@@ -207,6 +208,8 @@
                                                             </div>
                                                             <h6>Choose Picture</h6>
                                                         </div>
+                                                        <input type ="hidden" id ="profilepath" name="profilepath" />
+
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
@@ -374,7 +377,7 @@
                     <div class="content registerBox">
                         <div class="form">
                             <form method="post" html="{:multipart=>true}" data-remote="true"  accept-charset="UTF-8">
-                                <img src="img/userDefaultImg.jpg" class="img-circle" style="width:100px;height:100px"/>
+                                <img id ="profile_mypage" src="img/userDefaultImg.jpg" class="img-circle" style="width:100px;height:100px"/>
                                 <p id="mypage_email" class="form-control-static" name="email" ></p>
                                 <div class="error"></div>
                                 <input id="mypage_password" class="form-control" type="password" placeholder="Password" name="password">

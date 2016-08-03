@@ -232,20 +232,24 @@ function readURL(input) {
         var reader = new FileReader();
         alert(input.files[0]);
         var file = input.files[0];
+        console.dir(file);
         reader.onload = function (e) {
             $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
         }
         reader.readAsDataURL(input.files[0]);
+        var formData = new FormData();
+        formData.append("file", file);
     }
     $.ajax({
         url:"http://192.168.0.5:8000/uploadProfile",
         type:"POST",
-        data:{file : file},
+        data:formData,
         dataType:"text",
         processData:false,
         contentType:false,
         success:function(data){
-            alert(data);
+            $("#profilepath").val(data);
+            $("#wizard-picture").val("");
         },
         error:function () {
             alert("error");

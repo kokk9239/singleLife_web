@@ -15,13 +15,13 @@ $(".registerBoxForm").submit(function(event){
     var email =  $("#email_register").val();
     var password = $("#password_register").val();
     var repassword = $("#password_confirmation").val();
-    var gender =  $('select option:selected').val();
+    /*var gender =  $('select option:selected').val();*/
     var birthday = $("#datepicker").val();
     var postCode =  $("#sample3_postcode").val();
     var address =  $("#sample3_address").val();
     var regEmail = /^[\w]{4,}@[\w]+(\.[\w-]+){1,3}$/;
     var file = $("#wizard-picture").val();
-    alert(file);
+
 
     if(!email){
         error.html("이메일을 입력하세요.");
@@ -130,6 +130,14 @@ function loginAjax(){
     var uuid = $("#uuidchk");
     var market = $("#marketchk").val();
 
+    if(!password){
+        shakeModal("invalid email/password combination");
+        return false;
+    }
+    if(!email){
+        shakeModal("invalid email/password combination");
+        return false;
+    }
 
     console.log("loginAjax called.....");
 
@@ -138,17 +146,18 @@ function loginAjax(){
         $.ajax({
             url: "http://192.168.0.5:8000/board/login",
             data: { email : email, password : password },
-            dataType: 'json',
+            dataType: 'text',
             type: 'post',
 
             success: function(data){
+
                 // id/비번 틀린경우 (id x)
+                console.dir(data);
                 if(!data){
                     shakeModal("invalid email/password combination");
                 }
-
                 // data = JSON.parse(data);    // string -> json 파싱
-
+                data = JSON.parse(data);
                 // uuid 체크
                 if(data.email!=null && data.chk==null){
                     uuid.fadeIn('fast');
@@ -167,7 +176,6 @@ function loginAjax(){
                         "?fileName="+data.profilepath);
                     // 로그아웃
                 }
-
             }
         });
 
@@ -234,12 +242,33 @@ function createAccount() {
     var postcode = $("#sample3_postcode").val();
     var address = $("#sample3_address").val();
     var profilepath = $("#profilepath").val();
+
+    var users = "";
+    var developer = "";
+
+    $('input:checkbox[name="jobb"]').each(function(){
+        this.checked = true;
+        if(this.checked){
+            if(this.value=='User'){
+                alert(this.value);
+                users = this.value;
+            }
+            if(this.value == 'Develop'){
+                alert(this.value);
+                developer = this.value;
+            }
+        }
+    });
+
+
     formData.append("email",email);
     formData.append("password",password);
     formData.append("birthday",birthday);
     formData.append("postcode",postcode);
     formData.append("address",address);
     formData.append("profilepath",profilepath);
+    formData.append("users",users);
+    formData.append("developer",developer);
 
     $.ajax({
         url: "http://192.168.0.5:8000/board/createaccount",
@@ -358,17 +387,21 @@ $("#menu_mypage").on("click",function(){
             $("#mypage_password").val(data.password);
             $("#mypage_conPassword").val(data.password);
             $("#mypage_gender").val(data.gender);
-            $("#datepicker").val(data.birthday);
+            $("#mypage_datepicker").val(data.birthday);
             $("#mypage_postcode").val(data.postcode);
             $("#mypage_address").val(data.address);
-            $("#profile_mypage").attr("src","http://192.168.0.5:8000/displayProfile" +
-                "?fileName="+data.profilepath);
 
-/*            if(data.developer) {
-                block;
+            if(data.profilepath == null) {
+                $("#profile_mypage").attr("src","img/userDefaultImg.jpg");
+            }else{
+                $("#profile_mypage").attr("src","http://192.168.0.5:8000/displayProfile" +
+                    "?fileName="+data.profilepath);
+            }
+            if(data.developer) {
+                $('#ipInput').css("display","block");
             } else {
-                none;
-            }*/
+                $('#ipInput').css("display","none");
+            }
         }
     });
 

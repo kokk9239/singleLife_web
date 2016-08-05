@@ -433,3 +433,6 @@
         $('#datepicker').datepicker({
             autoclose:true
         });
+        $('#mypage_datepicker').datepicker({
+            autoclose:true
+        });

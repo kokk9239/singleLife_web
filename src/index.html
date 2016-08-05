@@ -92,7 +92,7 @@
                 <ul class="main_menu">
                     <li><a href=".hero" id="homeBtn">Home</a></li>
                     <li><a href=".service_area" id ="menuBtn">Menu</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#loginModal" id="menu_login">LOGIN</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#loginModal" id="menu_login" onclick="showLoginForm()">LOGIN</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#mypage" id="menu_mypage">MYPAGE</a></li>
                     <li><a href="#" id="menu_logout" onclick="logoutAjax()" style="display: none;">LOGOUT</a></li>
                 </ul>
@@ -116,22 +116,6 @@
                         <img src="img/logo.png">
                         </div>
                         <div class="error"></div>
-                        <!--<div class="social">
-                            <a class="circle github" href="/auth/github">
-                                <i class="fa fa-github fa-fw"></i>
-                            </a>
-                            <a id="google_login" class="circle google" href="/auth/google_oauth2">
-                                <i class="fa fa-google-plus fa-fw"></i>
-                            </a>
-                            <a id="facebook_login" class="circle facebook" href="/auth/facebook">
-                                <i class="fa fa-facebook fa-fw"></i>
-                            </a>
-                        </div>
-                        <div class="division">
-                            <div class="line l"></div>
-                            <span>or</span>
-                            <div class="line r"></div>
-                        </div>-->
                         <div class="form loginBox">
                             <form id="loginForm" method="post" action="http://192.168.0.5:8000/user/loginPostForm" accept-charset="UTF-8" target="zero">
                                 <input id="email" class="form-control" type="text" placeholder="Email" name="email" value="kim135792@naver.com">
@@ -147,39 +131,6 @@
                 </div>
                 <div class="box">
                     <div class="contentModal registerBox" style="display:none;">
-<!--                        <div class="form registerBoxForm">
-                            <form method="post" html="{:multipart=>true}" data-remote="true" action="http://192.168.0.5:8000/board/createaccount" accept-charset="UTF-8", id="formname1">
-                                <input id="email_register" class="form-control" type="text" placeholder="Email" name="email">
-                                <input id="password_register" class="form-control" type="password" placeholder="Password" name="password">
-                                <input id="password_confirmation" class="form-control" type="password"
-                                       placeholder="Repeat Password" name="password_confirmation">
-                                <select class="form-control" id="gender" name="gender">
-                                    <option value="default">select sex</option>
-                                    <option value="male">male</option>
-                                    <option value="female">female</option>
-                                </select>
-                                <div class="form-group">
-                                    <div class="input-group date">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input type="text" placeholder="Birthday" class="form-control pull-right" id="datepicker" name="birthday">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" type="text" id="sample3_postcode" placeholder="Postcode" name="postcode"> -
-                                    <input class="form-control" type="button" onclick="sample3_execDaumPostcode()" value="Find Postcode"><br>
-                                    <div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
-                                        <img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png"
-                                             id="btnFoldWrap"
-                                             style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1"
-                                             onclick="foldDaumPostcode()" alt="접기 버튼">
-                                    </div>
-                                    <input class="form-control" type="text" id="sample3_address" class="d_form large" placeholder="Address" name="address">
-                                </div>
-                                <input class="btn btn-default btn-register" type="submit" value="Create account" name="commit">
-                            </form>
-                        </div>-->
                         <div class="form registerBoxForm">
                                 <div class="card wizard-card ct-wizard-blue" id="wizardProfile">
                                     <form action="http://192.168.0.5:8000/board/createaccount" method="post" html="{:multipart=>true}" data-remote="true" accept-charset="UTF-8", id="formname1"
@@ -268,17 +219,7 @@
                                                         </div>
 
                                                     </div>
-           <!--                                         <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <select class="form-control" id="gender" name="gender">
-                                                                <option value="">select sex</option>
-                                                                <option value="male">male</option>
-                                                                <option value="female">female</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>-->
                                                     <div class="col-sm-6">
-
                                                         <div class="form-group">
                                                             <input class="form-control" type="text" id="sample3_postcode" placeholder="Postcode" name="postcode">
                                                         </div>
@@ -365,8 +306,8 @@
 
 
 <!--마이페이지 모달 추가-->
-<div class="modal fade login" id="mypage">
-    <div class="modal-dialog login animated">
+<div class="modal fade login" id="mypage" >
+    <div class="modal-dialog login animated" style="width:800px;">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -374,7 +315,7 @@
             </div>
             <div class="modal-body">
                 <div class="box">
-                    <div class="content registerBox">
+                    <!--<div class="content registerBox">
                         <div class="form">
                             <form method="post" html="{:multipart=>true}" data-remote="true"  accept-charset="UTF-8">
                                 <img id ="profile_mypage" src="img/userDefaultImg.jpg" class="img-circle" style="width:100px;height:100px"/>
@@ -383,21 +324,16 @@
                                 <input id="mypage_password" class="form-control" type="password" placeholder="Password" name="password">
                                 <input id="mypage_conPassword" class="form-control" type="password"
                                        placeholder="Repeat Password" name="password_confirmation">
-                                <select class="form-control" id="mypage_gender" name="gender" disabled>
-                                    <option value="default">select sex</option>
-                                    <option value="male" >male</option>
-                                    <option value="female">female</option>
-                                </select>
                                 <div class="form-group">
                                     <div class="input-group date">
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" placeholder="Birthday" class="form-control pull-right" id="datepicker" name="birthday" >
+                                        <input type="text" placeholder="Birthday" class="form-control pull-right datepicker" id="mypage_datepicker" name="birthday" >
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" type="text" id="mypage_postcode" placeholder="Postcode" name="postcode"> -
+                                    <input class="form-control" type="text" id="mypage_postcode" placeholder="Postcode" name="postcode">
                                     <input class="form-control" type="button" onclick="sample3_execDaumPostcode1()" value="Find Postcode"><br>
                                     <div id="mypagwrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
                                         <img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png"
@@ -423,8 +359,115 @@
                                 <input class="btn btn-modify" value="Modify Account" name="commit" id="updateBtn">
                             </form>
                         </div>
+                    </div>-->
+                    <div class="content registerBox">
+                    <div class="form registerBoxForm" >
+                        <div class="card wizard-card ct-wizard-blue" id="mypage_wizardProfile">
+                            <form method="post" html="{:multipart=>true}" data-remote="true" accept-charset="UTF-8", id="formname2"
+                                  enctype="multipart/form-data">
+                                <div class="wizard-header">
+                                    <h3>
+                                        <b>ABOUT</b> YOUR PROFILE <br>
+                                        <small>This information will let us know more about you.</small>
+                                    </h3>
+                                </div>
+                                <ul>
+                                    <li><a href="#mypage_about" data-toggle="tab">About</a></li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="mypage_about">
+                                        <div class="row">
+                                            <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
+                                            <div class="col-sm-4 col-sm-offset-1">
+                                                <div class="picture-container">
+                                                    <div class="picture">
+                                                        <img id ="profile_mypage" src="img/userDefaultImg.jpg" class="img-circle" style="width:100px;height:100px"/>
+                                                        <input type="file" id="mypage_wizard-picture">
+                                                    </div>
+                                                    <h6>Choose Picture</h6>
+                                                </div>
+                                                <input type ="hidden" id ="mypage_profilepath" name="profilepath" />
+
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <p id="mypage_email" class="form-control-static" name="email" ></p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input id="mypage_password" class="form-control" type="password" placeholder="Password" name="password">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input id="mypage_conPassword" class="form-control" type="password" placeholder="Repeat Password" name="confirm_password">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group" style="margin-bottom: 0px;">
+                                                    <div class="input-group date">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </div>
+                                                        <input type="text" placeholder="Birthday" class="form-control" id="mypage_datepicker" name="birthday">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <input class="form-control" type="text" id="mypage_postcode" placeholder="Postcode" name="postcode">
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <input class="form-control" type="button" onclick="sample3_execDaumPostcode1()" value="Find Postcode"><br>
+                                                    <div id="mypagwrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+                                                        <img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png"
+                                                             id="mypage_btnFoldWrap"
+                                                             style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1"
+                                                             onclick="foldDaumPostcode()" alt="접기 버튼">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <input class="form-control" type="text" id="mypage_address" class="d_form large" placeholder="Address" name="address">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <div class="form-group" id="ipInput">
+                                                        <p>개발용 아이피주소 입력창</p>
+                                                        <input class="form-control" type="text" id="ipAddress" placeholder="ex)192.168.0.**" name="ipAddress">
+                                                        <button class="btn btn-primary" type="button"  name="commit" id="apiBtn">GET API</button>
+                                                        <div id="apiResult"></div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <button class="btn btn-primary" type="button" name="commit" id="getApiBtn" >API Check</button>
+                                                        <div id="getApi"></div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wizard-footer">
+                                    <div class="pull-right">
+                                        <input class="btn btn-finish btn-fill btn-warning btn-wd btn-sm" value="Modify Account" name="commit" id="updateBtn">
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                     </div>
                 </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -539,7 +582,6 @@
                         <h4>택배 서비스</h4>
                         <h5>택배 알림 및 조회</h5>
                     </div>
-
 
                 </div>
             </div>
@@ -761,38 +803,6 @@
     </div>
 </div><!-- work area end   -->
 
-<!--웹툰에어리어
-<div class="portfolio_area" id="portfolioArea">
-    <div class="container" id="webtoon_content">
-        <div class="portfolio_section">
-            <div class="col-md-12 portfolio_top" id = "category_top">
-            </div>
-        </div>
-
-            <ul id="filters" class="clearfix">
-                <li><span class="filter active" id = "monBtn" data-filter="mon">월요일</span></li>
-                <li><span class="filter" id = "tueBtn" data-filter="tue">화요일</span></li>
-                <li><span class="filter" id = "wedBtn" data-filter="wed">수요일</span></li>
-                <li><span class="filter" id = "thuBtn" data-filter="thu">목요일</span></li>
-                <li><span class="filter" id = "friBtn" data-filter="fri">금요일</span></li>
-                <li><span class="filter" id = "satBtn" data-filter="sat">토요일</span></li>
-                <li><span class="filter" id = "sunBtn" data-filter="sun">일요일</span></li>
-            </ul>
-
-            <div id="portfoliolist">
-
-            </div>
-    </div>
-</div> portfolio area end   -->
-
-<!--<div class="service_area">
-    <div class="container">
-        <div class="row">
-            <div id="owl-demo" class="owl-carousel">
-            </div>
-        </div>
-    </div>
-</div>-->
 
 <!--혼밥div-->
 <div class="blog_area">

@@ -61,6 +61,10 @@ $(document).ready(function(){
         readURL(this);
     });
 
+    $("#mypage_wizard-picture").change(function(e){
+        readURL_update(this);
+    });
+
     $('[data-toggle="wizard-radio"]').click(function(){
         wizard = $(this).closest('.wizard-card');
         wizard.find('[data-toggle="wizard-radio"]').removeClass('active');
@@ -250,6 +254,7 @@ function readURL(input) {
         success:function(data){
             $("#profilepath").val(data);
             $("#wizard-picture").val("");
+            alert("여기 들어오니")
         },
         error:function () {
             alert("error");
@@ -258,7 +263,36 @@ function readURL(input) {
 
 }
 
+function readURL_update(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        alert(input.files[0]);
+        var file = input.files[0];
+        console.dir(file);
+        reader.onload = function (e) {
+            $('#profile_mypage').attr('src', e.target.result).fadeIn('slow');
+        }
+        reader.readAsDataURL(input.files[0]);
+        var formData = new FormData();
+        formData.append("file", file);
+    }
+    $.ajax({
+        url:"http://192.168.0.5:8000/uploadProfile",
+        type:"POST",
+        data:formData,
+        dataType:"text",
+        processData:false,
+        contentType:false,
+        success:function(data){
+            $("#mypage_profilepath").val(data);
+            $("#mypage_wizard-picture").val("");
+        },
+        error:function () {
+            alert("error");
+        }
+    });
 
+}
 
 
 

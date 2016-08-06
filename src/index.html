@@ -146,7 +146,6 @@
                                             <li><a href="#account" data-toggle="tab">Account</a></li>
                                             <li><a href="#address" data-toggle="tab">Address</a></li>
                                         </ul>
-
                                         <div class="tab-content">
                                             <div class="tab-pane" id="about">
                                                 <div class="row">
@@ -315,51 +314,6 @@
             </div>
             <div class="modal-body">
                 <div class="box">
-                    <!--<div class="content registerBox">
-                        <div class="form">
-                            <form method="post" html="{:multipart=>true}" data-remote="true"  accept-charset="UTF-8">
-                                <img id ="profile_mypage" src="img/userDefaultImg.jpg" class="img-circle" style="width:100px;height:100px"/>
-                                <p id="mypage_email" class="form-control-static" name="email" ></p>
-                                <div class="error"></div>
-                                <input id="mypage_password" class="form-control" type="password" placeholder="Password" name="password">
-                                <input id="mypage_conPassword" class="form-control" type="password"
-                                       placeholder="Repeat Password" name="password_confirmation">
-                                <div class="form-group">
-                                    <div class="input-group date">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input type="text" placeholder="Birthday" class="form-control pull-right datepicker" id="mypage_datepicker" name="birthday" >
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" type="text" id="mypage_postcode" placeholder="Postcode" name="postcode">
-                                    <input class="form-control" type="button" onclick="sample3_execDaumPostcode1()" value="Find Postcode"><br>
-                                    <div id="mypagwrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
-                                        <img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png"
-                                             id="mypage_btnFoldWrap"
-                                             style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1"
-                                             onclick="foldDaumPostcode1()" alt="접기 버튼">
-                                    </div>
-                                    <input class="form-control" type="text" id="mypage_address" class="d_form large" placeholder="Address" name="address">
-                                </div>
-
-                                <div class="form-group" id="ipInput">
-                                    <p>개발용 아이피주소 입력창</p>
-                                    <input class="form-control" type="text" id="ipAddress" placeholder="ex)192.168.0.**" name="ipAddress">
-                                    <button class="btn btn-primary" type="button"  name="commit" id="apiBtn">GET API</button>
-                                    <div id="apiResult"></div>
-                                </div>
-
-                                <div class="form-group">
-                                    <button class="btn btn-primary" type="button" name="commit" id="getApiBtn" >API Check</button>
-                                    <div id="getApi"></div>
-                                </div>
-
-                                <input class="btn btn-modify" value="Modify Account" name="commit" id="updateBtn">
-                            </form>
-                        </div>
-                    </div>-->
                     <div class="content registerBox">
                     <div class="form registerBoxForm" >
                         <div class="card wizard-card ct-wizard-blue" id="mypage_wizardProfile">
@@ -378,7 +332,7 @@
                                 <div class="tab-content">
                                     <div class="tab-pane" id="mypage_about">
                                         <div class="row">
-                                            <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
+                                            <h4 class="info-text"> Let's check with the basic information (with validation)</h4>
                                             <div class="col-sm-4 col-sm-offset-1">
                                                 <div class="picture-container">
                                                     <div class="picture">
@@ -387,8 +341,7 @@
                                                     </div>
                                                     <h6>Choose Picture</h6>
                                                 </div>
-                                                <input type ="hidden" id ="mypage_profilepath" name="profilepath" />
-
+                                                <input type ="hidden" id ="mypage_profilepath" name="mypage_profilepath" />
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
@@ -409,7 +362,6 @@
                                                         </div>
                                                         <input type="text" placeholder="Birthday" class="form-control" id="mypage_datepicker" name="birthday">
                                                     </div>
-
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
@@ -435,10 +387,10 @@
                                                     <input class="form-control" type="text" id="mypage_address" class="d_form large" placeholder="Address" name="address">
                                                 </div>
                                             </div>
-                                            <div class="col-sm-12">
+                                            <div class="col-sm-12" id="ipArea">
+                                                <h4 class="info-text"> API Guide <small>(for Develper who use our API Service)</small></h4>
                                                 <div class="form-group">
                                                     <div class="form-group" id="ipInput">
-                                                        <p>개발용 아이피주소 입력창</p>
                                                         <input class="form-control" type="text" id="ipAddress" placeholder="ex)192.168.0.**" name="ipAddress">
                                                         <button class="btn btn-primary" type="button"  name="commit" id="apiBtn">GET API</button>
                                                         <div id="apiResult"></div>
@@ -448,18 +400,14 @@
                                                         <button class="btn btn-primary" type="button" name="commit" id="getApiBtn" >API Check</button>
                                                         <div id="getApi"></div>
                                                     </div>
-
                                                 </div>
                                             </div>
-
+                                            <div class="pull-right">
+                                                <input class="btn btn-finish btn-fill btn-warning btn-wd btn-sm" value="Modify Account" name="commit" id="updateBtn">
+                                            </div>
+                                            <div class="clearfix"></div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="wizard-footer">
-                                    <div class="pull-right">
-                                        <input class="btn btn-finish btn-fill btn-warning btn-wd btn-sm" value="Modify Account" name="commit" id="updateBtn">
-                                    </div>
-                                    <div class="clearfix"></div>
                                 </div>
                             </form>
                         </div>

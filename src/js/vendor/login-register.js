@@ -101,6 +101,13 @@ function showLoginForm(){
         $("#datepicker").val("");
         $("#sample3_postcode").val("");
         $("#sample3_address").val("");
+        $("#profilepath").val("");
+        $("#wizardPicturePreview").attr("src","img/userDefaultImg.jpg");
+
+        //체크박스 해제
+        if($('input:checkbox[name="jobb"]').length == $('input:checkbox[name="jobb"]:checked').length){
+            $('input:checkbox[name="jobb"]').prop("checked",false);
+        }
 
     });
     $('.error').removeClass('alert alert-danger').html('');
@@ -131,11 +138,11 @@ function loginAjax(){
     var market = $("#marketchk").val();
 
     if(!password){
-        shakeModal("invalid email/password combination");
+        shakeModal("패스워드를 확인해주세요.");
         return false;
     }
     if(!email){
-        shakeModal("invalid email/password combination");
+        shakeModal("이메일을 확인해주세요.");
         return false;
     }
 
@@ -154,7 +161,7 @@ function loginAjax(){
                 // id/비번 틀린경우 (id x)
                 console.dir(data);
                 if(!data){
-                    shakeModal("invalid email/password combination");
+                    shakeModal("이메일과 패스워드를 확인해주세요.");
                 }
                 // data = JSON.parse(data);    // string -> json 파싱
                 data = JSON.parse(data);
@@ -202,7 +209,7 @@ function loginAjax(){
                     //market login...
                     $("#loginForm").submit();
                 } else {
-                    shakeModal("invalid email/password combination");
+                    shakeModal("이메일과 패스워드를 확인해주세요.");
                 }
             }
         });
@@ -247,7 +254,7 @@ function createAccount() {
     var developer = "";
 
     $('input:checkbox[name="jobb"]').each(function(){
-        this.checked = true;
+        console.dir(this)
         if(this.checked){
             if(this.value=='User'){
                 alert(this.value);
@@ -259,7 +266,6 @@ function createAccount() {
             }
         }
     });
-
 
     formData.append("email",email);
     formData.append("password",password);
@@ -280,7 +286,7 @@ function createAccount() {
         contentType:false,
         success: function(){
             $(".close").click();
-            alert("email로 가서 uuid 인증하세요.");
+            alert("가입한 email 주소로 uuid번호를 인증해주세요.");
         }
     });
 
@@ -291,6 +297,13 @@ function createAccount() {
     var postCode =  $("#sample3_postcode").val("");
     var address =  $("#sample3_address").val("");
     var profilepath = $("#profilepath").val("");
+
+
+    // 체크박스 해제
+    if($('input:checkbox[name="jobb"]').length == $('input:checkbox[name="jobb"]:checked').length){
+        $('input:checkbox[name="jobb"]').prop("checked",false);
+    }
+
     openLoginModal();
 }
 
@@ -372,8 +385,10 @@ $(document).ready(function () {
 
 $("#menu_mypage").on("click",function(){
 
-
     var email = sessionStorage.getItem("user");
+
+    $('.modal-title').html('Mypage');
+    $('.login .modal-dialog').css("width", "800px");
 
     $.ajax({
         url: "http://192.168.0.5:8000/board/loginAjax",
@@ -382,6 +397,7 @@ $("#menu_mypage").on("click",function(){
         type: 'POST',
 
         success: function(data){
+
 
             $("#mypage_email").html(data.email);
             $("#mypage_password").val(data.password);
@@ -397,10 +413,10 @@ $("#menu_mypage").on("click",function(){
                 $("#profile_mypage").attr("src","http://192.168.0.5:8000/displayProfile" +
                     "?fileName="+data.profilepath);
             }
-            if(data.developer) {
-                $('#ipInput').css("display","block");
-            } else {
-                $('#ipInput').css("display","none");
+            if(data.developer == null) {
+                $('#ipArea').css("display","none");
+            }else {
+                $('#ipArea').css("display","block");
             }
         }
     });
@@ -418,8 +434,6 @@ $("#menu_mypage").on("click",function(){
             }
         },
     });
-
-
 });
 
 
@@ -444,19 +458,36 @@ $("input[id=mypage_conPassword]").blur(function(){
     error.html(msg);
 });
 
+//회원 수정
 
 $("#updateBtn").on("click", function(){
 
-
+    var formData = new FormData();
 
     var mEmail = $("#mypage_email").html();
-
     var mPass = $("#mypage_password").val();
     /*var mConPass = $("#mypage_conPassword").val();*/
     var mbirthday = $("#mypage_datepicker").val();
     var mPostcode = $("#mypage_postcode").val();
     var mAddress = $("#mypage_address").val();
 
+    var mProfilepath = $("#mypage_profilepath").val();
+
+    alert(mProfilepath);
+    alert(mbirthday);
+    alert(mPostcode);
+
+    formData.append("email",mEmail);
+    formData.append("password",mPass);
+    formData.append("birthday",mbirthday);
+    formData.append("postcode",mPostcode);
+    formData.append("address",mAddress);
+    formData.append("profilepath",mProfilepath);
+
+    if(!mPass){
+        error.html("비밀번호를 입력하세요.");
+        return false;
+    }
     if(!mPostcode){
         error.html("우편번호를 입력하세요.");
         return false;
@@ -468,8 +499,11 @@ $("#updateBtn").on("click", function(){
 
     $.ajax({
         url: "http://192.168.0.5:8000/board/updateAjax",
-        data: { email : mEmail, password : mPass, birthday : mbirthday, postcode : mPostcode, address : mAddress},
+        //data: { email : mEmail, password : mPass, birthday : mbirthday, postcode : mPostcode, address : mAddress},
+        data: formData,
         type: 'POST',
+        processData:false,
+        contentType:false,
         success: function(){
             error.html("");
             alert("회원정보가 수정되었습니다.");

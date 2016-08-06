@@ -21,11 +21,16 @@ var common_module = (function () {
         var position = $("#prodInfo_content").offset();
         $("html, body").animate({scrollTop: position.top-100},500);
     }
+    function moveGameMenu(){
+        var position = $("#game_content").offset();
+        $("html, body").animate({scrollTop: position.top-100},500);
+    }
     return{
         moveYoutubeMenu : moveYoutubeMenu,
         moveCvsMenu : moveCvsMenu,
         moveWebtoonMenu : moveWebtoonMenu,
-        moveProdMenu : moveProdMenu
+        moveProdMenu : moveProdMenu,
+        moveGameMenu : moveGameMenu
     }
 
 })();

@@ -3,7 +3,7 @@
  */
 var game_module = (function(){
     function gameTitle(){
-        $("#game_content").html("<h1>IO<span>게임 사이트</span></h1>");
+        $("#game_content").html("<h1> IO <span>게임 사이트</span></h1>");
     };
 
     function showGame() {

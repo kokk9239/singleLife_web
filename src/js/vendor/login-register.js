@@ -72,7 +72,12 @@ $(".registerBoxForm").submit(function(event){
 function showRegisterForm(){
     $('.loginBox').fadeOut('fast',function(){
 
-        $('.login .modal-dialog').css("width", "800px");
+        if(isMobile()){
+            $('.login .modal-dialog').css("width", "100%");
+        }else{
+            $('.login .modal-dialog').css("width", "800px");
+        }
+
         $('.loginTitle').css("display","none");
 
         $('.registerBox').fadeIn('fast');
@@ -309,7 +314,7 @@ function createAccount() {
 
 // 유효성 검사
 $(function() {
-    var error = $(".error");
+    /*var error = $(".error");*/
 
     if(sessionStorage.getItem("user"))
     {
@@ -320,7 +325,7 @@ $(function() {
     }
 
     //이메일 유효확인
-    $("input[name=email]").blur(function(){
+    /*$("input[name=email]").blur(function(){
         var msg = "";
         var regEmail = /^[\w]{4,}@[\w]+(\.[\w-]+){1,3}$/;
         if(regEmail.test($(this).val())==false) {
@@ -348,7 +353,7 @@ $(function() {
             msg = "입력하신 패스워드가 일치하지 않습니다.";
         }
         error.html(msg);
-    });
+    });*/
 
     $(".close").click(function(){
         var uuid = $("#uuidchk");
@@ -388,7 +393,12 @@ $("#menu_mypage").on("click",function(){
     var email = sessionStorage.getItem("user");
 
     $('.modal-title').html('Mypage');
-    $('.login .modal-dialog').css("width", "800px");
+
+    if(isMobile()){
+        $('.login .modal-dialog').css("width", "100%");
+    }else{
+        $('.login .modal-dialog').css("width", "800px");
+    }
 
     $.ajax({
         url: "http://192.168.0.5:8000/board/loginAjax",
@@ -526,7 +536,6 @@ $("#apiBtn").on("click", function(){
         result.html("사용할 아이피 주소를 입력해주세요.");
         return false;
     }
-
     $.ajax({
         url: "http://192.168.0.5:8000/controller/api/registkey",
         data: { email : mEmail, ip : ipAddress},
@@ -554,13 +563,28 @@ $("#getApiBtn").click(function () {
         dataType : 'text',
         success: function(data){
             result.html(data);
-
+            result.toggle();
         },
         fail: function(){
-            alert("회원정보 수정이 실패하였습니다.");
+            alert("API Key 조회에 실패하였습니다.");
         }
     });
 });
+
+
+/*모달 사이즈 수정용*/
+
+function isMobile(){
+    var UserAgent = navigator.userAgent;
+
+    if (UserAgent.match(/iPhone|iPod|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i) != null || UserAgent.match(/LG|SAMSUNG|Samsung/) != null)
+    {
+        return true;
+    }else{
+        return false;
+    }
+}
+
 
 
 

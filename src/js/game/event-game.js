@@ -14,7 +14,7 @@ $(document).ready(function(){
         $("#cvs_content").css("display", "none");
         $("#parcelArea").css("display","none");
         $("#prodInfo_content").css("display", "none");
-        common_module.moveYoutubeMenu();
+        common_module.moveGameMenu();
         game_module.gameTitle();
         game_module.showGame();
         $(window).unbind('scroll');

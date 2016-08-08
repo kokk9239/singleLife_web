@@ -8,7 +8,7 @@ var travel_module = (function () {
     }
 
     function showTravel(pageNo) {
-        $.getJSON("http://14.32.66.116:11001/controller/travel?pageNo="+pageNo+"&pageSize=9", function (data) {
+        $.getJSON("http://14.32.66.116:11001/controller/travel?pageNo="+pageNo+"&pageSize=9&apikey=a5589d81bc7d511f3becc51e093ef239", function (data) {
             if(!data.length){
                 $(".loadingArea").html("");
                 alert("마지막 페이지 입니다.");

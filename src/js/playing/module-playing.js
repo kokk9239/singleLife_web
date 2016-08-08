@@ -24,7 +24,7 @@ var play_module = (function () {
 
     function showNaverWebtoon() {
         $.ajax({
-            url : "http://14.32.66.116:11001/controller/play/webtoon?origin=naver&pageNo=1&pageSize=1000",
+            url : "http://14.32.66.116:11001/controller/play/webtoon?origin=naver&pageNo=1&pageSize=1000&apikey=a5589d81bc7d511f3becc51e093ef239",
             dataType : "JSON",
             async:false,
             success: function (data) {
@@ -38,7 +38,7 @@ var play_module = (function () {
     }
     function showDaumWebtoon() {
         $.ajax({
-            url : "http://14.32.66.116:11001/controller/play/webtoon?origin=daum&pageNo=1&pageSize=1000",
+            url : "http://14.32.66.116:11001/controller/play/webtoon?origin=daum&pageNo=1&pageSize=1000&apikey=a5589d81bc7d511f3becc51e093ef239",
             dataType : "JSON",
             async:false,
             success: function (data) {
@@ -55,7 +55,7 @@ var play_module = (function () {
     }
 
     function showYoutube(pageNo) {
-        $.getJSON("http://14.32.66.116:11001/controller/play/youtube?pageNo="+pageNo, function (data) {
+        $.getJSON("http://14.32.66.116:11001/controller/play/youtube?pageNo="+pageNo+"&apikey=a5589d81bc7d511f3becc51e093ef239", function (data) {
             if(!data.length){
                 $(".loadingArea").html("");
                 alert("마지막 페이지 입니다.");

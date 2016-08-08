@@ -7,7 +7,7 @@ var prodInfo_module = (function () {
 
     function showCoupang(pageNo) {
 
-        $.getJSON("http://192.168.0.53:8000/controller/prodInfo/coupang?pageNo="+pageNo+"&pageSize=9", function (data) {
+        $.getJSON("http://14.32.66.116:11001/controller/prodInfo/coupang?pageNo="+pageNo+"&pageSize=9", function (data) {
             if(!data.length){
                 $(".loadingArea").html("");
                 alert("마지막 페이지 입니다.");
@@ -24,7 +24,7 @@ var prodInfo_module = (function () {
 
     function showTmon(pageNo) {
 
-        $.getJSON("http://192.168.0.53:8000/controller/prodInfo/tmon?pageNo="+pageNo+"&pageSize=9", function (data) {
+        $.getJSON("http://14.32.66.116:11001/controller/prodInfo/tmon?pageNo="+pageNo+"&pageSize=9", function (data) {
             if(!data.length){
                 $(".loadingArea").html("");
                 alert("마지막 페이지 입니다.");
@@ -40,7 +40,7 @@ var prodInfo_module = (function () {
     }
     function showAuction(pageNo) {
 
-        $.getJSON("http://192.168.0.53:8000/controller/prodInfo/auction?pageNo="+pageNo+"&pageSize=9", function (data) {
+        $.getJSON("http://14.32.66.116:11001/controller/prodInfo/auction?pageNo="+pageNo+"&pageSize=9", function (data) {
             if(!data.length){
                 $(".loadingArea").html("");
                 alert("마지막 페이지 입니다.");
@@ -56,7 +56,7 @@ var prodInfo_module = (function () {
     }
     function showWmp(pageNo) {
 
-        $.getJSON("http://192.168.0.53:8000/controller/prodInfo/wmp?pageNo="+pageNo+"&pageSize=9", function (data) {
+        $.getJSON("http://14.32.66.116:11001/controller/prodInfo/wmp?pageNo="+pageNo+"&pageSize=9", function (data) {
             if(!data.length){
                 $(".loadingArea").html("");
                 alert("마지막 페이지 입니다.");

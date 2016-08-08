@@ -7,7 +7,7 @@ var game_module = (function(){
     };
 
     function showGame() {
-        $.getJSON("http://192.168.0.53:8000/controller/play/game", function (data) {
+        $.getJSON("http://14.32.66.116:11001/controller/play/game", function (data) {
             var content = "";
             for (var i in data) {
                 var image = data[i].image;
@@ -18,7 +18,7 @@ var game_module = (function(){
                     content = " <div class='single_blog col-md-4 slider-content ' id='game-content'>"
                         + "<a href='"+link+"' target='_blank' >"
                         + "<div style = 'width:343px; height:200px; overflow:hidden'>"
-                        + "<img src='http://192.168.0.53:8000/controller/play/getimg?image=" + image + "' style='width:343px; height:200px;'"
+                        + "<img src='http://14.32.66.116:11001/controller/play/getimg?image=" + image + "' style='width:343px; height:200px;'"
                         + " onerror='this.src='+jpg/>"
                         + "</div>"
                         + "<div class='slider-text'>"

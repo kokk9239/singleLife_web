@@ -156,7 +156,7 @@ function loginAjax(){
     // uuid 없을경우
     if(uuid.val()==""){
         $.ajax({
-            url: "http://192.168.0.5:8000/board/login",
+            url: "http://14.32.66.116:11000/board/login",
             data: { email : email, password : password },
             dataType: 'text',
             type: 'post',
@@ -184,7 +184,7 @@ function loginAjax(){
                     sessionStorage.setItem("user",data.email);
                     sessionStorage.setItem("pass",data.password);
                     $("#loginForm").submit();
-                    $("#profile_mypage").attr("src","http://192.168.0.5:8000/displayProfile" +
+                    $("#profile_mypage").attr("src","http://14.32.66.116:11000/displayProfile" +
                         "?fileName="+data.profilepath);
                     // 로그아웃
                 }
@@ -193,7 +193,7 @@ function loginAjax(){
 
     } else {                                                    // uuid 있을경우
         $.ajax({
-            url: "http://192.168.0.5:8000/board/changeChk",
+            url: "http://14.32.66.116:11000/board/changeChk",
             data: { email : email, password : password, uuid : uuid.val() },
             dataType: 'text',
             type: 'post',
@@ -282,7 +282,7 @@ function createAccount() {
     formData.append("developer",developer);
 
     $.ajax({
-        url: "http://192.168.0.5:8000/board/createaccount",
+        url: "http://14.32.66.116:11000/board/createaccount",
         // data: { email : email, password : password, birthday : birthday, postcode : postcode, address : address, profilepath: profilepath},
         data: formData,
         dataType: 'text',
@@ -401,7 +401,7 @@ $("#menu_mypage").on("click",function(){
     }
 
     $.ajax({
-        url: "http://192.168.0.5:8000/board/loginAjax",
+        url: "http://14.32.66.116:11000/board/loginAjax",
         data: { email : email},
         dataType: 'JSON',
         type: 'POST',
@@ -420,7 +420,7 @@ $("#menu_mypage").on("click",function(){
             if(data.profilepath == null) {
                 $("#profile_mypage").attr("src","img/userDefaultImg.jpg");
             }else{
-                $("#profile_mypage").attr("src","http://192.168.0.5:8000/displayProfile" +
+                $("#profile_mypage").attr("src","http://14.32.66.116:11000/displayProfile" +
                     "?fileName="+data.profilepath);
             }
             if(data.developer == null) {
@@ -432,7 +432,7 @@ $("#menu_mypage").on("click",function(){
     });
 
     $.ajax({
-        url: "http://192.168.0.5:8000/controller/api/getapikey",
+        url: "http://14.32.66.116:11000/controller/api/getapikey",
         data: { email : email},
         type: 'POST',
         dataType : 'text',
@@ -508,7 +508,7 @@ $("#updateBtn").on("click", function(){
     }
 
     $.ajax({
-        url: "http://192.168.0.5:8000/board/updateAjax",
+        url: "http://14.32.66.116:11000/board/updateAjax",
         //data: { email : mEmail, password : mPass, birthday : mbirthday, postcode : mPostcode, address : mAddress},
         data: formData,
         type: 'POST',
@@ -537,7 +537,7 @@ $("#apiBtn").on("click", function(){
         return false;
     }
     $.ajax({
-        url: "http://192.168.0.5:8000/controller/api/registkey",
+        url: "http://14.32.66.116:11000/controller/api/registkey",
         data: { email : mEmail, ip : ipAddress},
         type: 'POST',
         dataType : 'text',
@@ -557,7 +557,7 @@ $("#getApiBtn").click(function () {
     var result = $("#getApi");
 
     $.ajax({
-        url: "http://192.168.0.5:8000/controller/api/getapikey",
+        url: "http://14.32.66.116:11000/controller/api/getapikey",
         data: { email : mEmail},
         type: 'POST',
         dataType : 'text',

@@ -6,7 +6,7 @@ var parcel_module = (function () {
 
     function showParcel(code,invoice) {
         $.ajax({
-            url : "http://192.168.0.53:8000/controller/parcel",
+            url : "http://14.32.66.116:11001/controller/parcel",
             dataType : "JSON",
             data : {
                 code : code,

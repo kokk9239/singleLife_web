@@ -18,7 +18,7 @@ $(document).ready(function () {
         $("#recipe_content").html("");
         $("#game_content").html("");
         $("#cvs_content").css("display", "none");
-        
+
         $("#parcelArea").css("display","none");
         $("#resultArea").html("");
         $("#webtoon_content").css("display", "none");
@@ -40,7 +40,7 @@ $(document).ready(function () {
             if (Math.ceil($(window).scrollTop()) == $(document).height() - $(window).height()) {
                 pageNo += 1;
                 prodInfo_module.showCoupang(pageNo);
-                $(".loadingArea").html('<img src = "img/preloader.gif" style="width: 60px; height: 60px">');
+                $(".loadingArea").html('<img src = "https://cdn.rawgit.com/kokk9239/singleLife_web/master/src/img/preloader.gif" style="width: 60px; height: 60px">');
             }
         });
 
@@ -54,7 +54,7 @@ $(document).ready(function () {
             if (Math.ceil($(window).scrollTop()) == $(document).height() - $(window).height()) {
                 pageNo += 1;
                 prodInfo_module.showTmon(pageNo);
-                $(".loadingArea").html('<img src = "img/preloader.gif" style="width: 60px; height: 60px">');
+                $(".loadingArea").html('<img src = "https://cdn.rawgit.com/kokk9239/singleLife_web/master/src/img/preloader.gif" style="width: 60px; height: 60px">');
             }
         });
     });
@@ -67,7 +67,7 @@ $(document).ready(function () {
             if (Math.ceil($(window).scrollTop()) == $(document).height() - $(window).height()) {
                 pageNo += 1;
                 prodInfo_module.showAuction(pageNo);
-                $(".loadingArea").html('<img src = "img/preloader.gif" style="width: 60px; height: 60px">');
+                $(".loadingArea").html('<img src = "https://cdn.rawgit.com/kokk9239/singleLife_web/master/src/img/preloader.gif" style="width: 60px; height: 60px">');
             }
         });
     });
@@ -81,7 +81,7 @@ $(document).ready(function () {
             if (Math.ceil($(window).scrollTop()) == $(document).height() - $(window).height()) {
                 pageNo += 1;
                 prodInfo_module.showWmp(pageNo);
-                $(".loadingArea").html('<img src = "img/preloader.gif" style="width: 60px; height: 60px">');
+                $(".loadingArea").html('<img src = "https://cdn.rawgit.com/kokk9239/singleLife_web/master/src/img/preloader.gif" style="width: 60px; height: 60px">');
             }
         });
     });

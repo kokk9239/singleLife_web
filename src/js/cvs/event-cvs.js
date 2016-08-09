@@ -64,7 +64,7 @@ $(document).ready(function () {
             if (Math.ceil($(window).scrollTop()) == $(document).height() - $(window).height()) {
                 pageNo += 1;
                 cvs_module.showGSPlus1(pageNo);
-                $(".loadingArea").html('<img src = "img/preloader.gif" style="width: 60px; height: 60px">');
+                $(".loadingArea").html('<img src = "https://cdn.rawgit.com/kokk9239/singleLife_web/master/src/img/preloader.gif" style="width: 60px; height: 60px">');
             }
         });
 
@@ -84,7 +84,7 @@ $(document).ready(function () {
             if (Math.ceil($(window).scrollTop()) == $(document).height() - $(window).height()) {
                 pageNo += 1;
                 cvs_module.showGSPlus2(pageNo);
-                $(".loadingArea").html('<img src = "img/preloader.gif" style="width: 60px; height: 60px">');
+                $(".loadingArea").html('<img src = "https://cdn.rawgit.com/kokk9239/singleLife_web/master/src/img/preloader.gif" style="width: 60px; height: 60px">');
             }
         });
 
@@ -103,7 +103,7 @@ $(document).ready(function () {
             if (Math.ceil($(window).scrollTop()) == $(document).height() - $(window).height()) {
                 pageNo += 1;
                 cvs_module.showGSGift(pageNo);
-                $(".loadingArea").html('<img src = "img/preloader.gif" style="width: 60px; height: 60px">');
+                $(".loadingArea").html('<img src = "https://cdn.rawgit.com/kokk9239/singleLife_web/master/src/img/preloader.gif" style="width: 60px; height: 60px">');
             }
         });
 
@@ -122,7 +122,7 @@ $(document).ready(function () {
             if (Math.ceil($(window).scrollTop()) == $(document).height() - $(window).height()) {
                 pageNo += 1;
                 cvs_module.showCUPlus1(pageNo);
-                $(".loadingArea").html('<img src = "img/preloader.gif" style="width: 60px; height: 60px">');
+                $(".loadingArea").html('<img src = "https://cdn.rawgit.com/kokk9239/singleLife_web/master/src/img/preloader.gif" style="width: 60px; height: 60px">');
             }
         });
 
@@ -140,7 +140,7 @@ $(document).ready(function () {
             if (Math.ceil($(window).scrollTop()) == $(document).height() - $(window).height()) {
                 pageNo += 1;
                 cvs_module.showCUPlus2(pageNo);
-                $(".loadingArea").html('<img src = "img/preloader.gif" style="width: 60px; height: 60px">');
+                $(".loadingArea").html('<img src = "https://cdn.rawgit.com/kokk9239/singleLife_web/master/src/img/preloader.gif" style="width: 60px; height: 60px">');
             }
         });
 
@@ -159,7 +159,7 @@ $(document).ready(function () {
             if (Math.ceil($(window).scrollTop()) == $(document).height() - $(window).height()) {
                 pageNo += 1;
                 cvs_module.showCUGift(pageNo);
-                $(".loadingArea").html('<img src = "img/preloader.gif" style="width: 60px; height: 60px">');
+                $(".loadingArea").html('<img src = "https://cdn.rawgit.com/kokk9239/singleLife_web/master/src/img/preloader.gif" style="width: 60px; height: 60px">');
             }
         });
 
@@ -178,7 +178,7 @@ $(document).ready(function () {
             if (Math.ceil($(window).scrollTop()) == $(document).height() - $(window).height()) {
                 pageNo += 1;
                 cvs_module.showSEVENPlus1(pageNo);
-                $(".loadingArea").html('<img src = "img/preloader.gif" style="width: 60px; height: 60px">');
+                $(".loadingArea").html('<img src = "https://cdn.rawgit.com/kokk9239/singleLife_web/master/src/img/preloader.gif" style="width: 60px; height: 60px">');
             }
         });
 
@@ -197,7 +197,7 @@ $(document).ready(function () {
             if (Math.ceil($(window).scrollTop()) == $(document).height() - $(window).height()) {
                 pageNo += 1;
                 cvs_module.showSEVENPlus2(pageNo);
-                $(".loadingArea").html('<img src = "img/preloader.gif" style="width: 60px; height: 60px">');
+                $(".loadingArea").html('<img src = "https://cdn.rawgit.com/kokk9239/singleLife_web/master/src/img/preloader.gif" style="width: 60px; height: 60px">');
             }
         });
     });

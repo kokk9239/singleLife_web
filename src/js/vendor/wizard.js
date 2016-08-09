@@ -234,7 +234,6 @@ function validateThirdStep(){
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-        alert(input.files[0]);
         var file = input.files[0];
         console.dir(file);
         reader.onload = function (e) {
@@ -254,7 +253,6 @@ function readURL(input) {
         success:function(data){
             $("#profilepath").val(data);
             $("#wizard-picture").val("");
-            alert("여기 들어오니")
         },
         error:function () {
             alert("error");
@@ -266,7 +264,6 @@ function readURL(input) {
 function readURL_update(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-        alert(input.files[0]);
         var file = input.files[0];
         console.dir(file);
         reader.onload = function (e) {

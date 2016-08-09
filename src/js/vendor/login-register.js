@@ -7,6 +7,7 @@
  *
  */
 // submit 회원가입
+
 var error = $(".error");
 
 $(".registerBoxForm").submit(function(event){
@@ -157,7 +158,7 @@ function loginAjax(){
     if(uuid.val()==""){
         $.ajax({
             url: "http://14.32.66.116:11000/board/login",
-            data: { email : email, password : password },
+            data: { email : email, password : password},
             dataType: 'text',
             type: 'post',
 
@@ -170,6 +171,7 @@ function loginAjax(){
                 }
                 // data = JSON.parse(data);    // string -> json 파싱
                 data = JSON.parse(data);
+                console.dir(data);
                 // uuid 체크
                 if(data.email!=null && data.chk==null){
                     uuid.fadeIn('fast');
@@ -184,6 +186,10 @@ function loginAjax(){
                     sessionStorage.setItem("user",data.email);
                     sessionStorage.setItem("pass",data.password);
                     $("#loginForm").submit();
+                    var user = "User";
+                    if(data.developer)
+                        user = "Developer";
+                    swal(user+" Login Success!", "You clicked the button!", "success");
                     $("#profile_mypage").attr("src","http://14.32.66.116:11000/displayProfile" +
                         "?fileName="+data.profilepath);
                     // 로그아웃
@@ -199,7 +205,7 @@ function loginAjax(){
             type: 'post',
 
             success: function(data){                                    // 로그인
-                alert(data);
+                // alert(data);
                 // data = json.parse(data);    // string -> json 파싱
                 if(data=="success"){
                     uuid.fadeOut('fast');
@@ -231,7 +237,8 @@ function logoutAjax(){
     $("#menu_mypage").css("display","none");
     $("#menu_logout").css("display","none");
     $("#menu_login").css("display","block");
-
+    $("#email").val("");
+    $("#password").val("");
 }
 
 function shakeModal(msg){
@@ -262,11 +269,11 @@ function createAccount() {
         console.dir(this)
         if(this.checked){
             if(this.value=='User'){
-                alert(this.value);
+                // alert(this.value);
                 users = this.value;
             }
             if(this.value == 'Develop'){
-                alert(this.value);
+                // alert(this.value);
                 developer = this.value;
             }
         }
@@ -291,7 +298,7 @@ function createAccount() {
         contentType:false,
         success: function(){
             $(".close").click();
-            alert("가입한 email 주소로 uuid번호를 인증해주세요.");
+            swal("가입한 email 주소로 uuid번호를 인증해주세요.", "You clicked the button!", "success");
         }
     });
 
@@ -358,8 +365,7 @@ $(function() {
     $(".close").click(function(){
         var uuid = $("#uuidchk");
         uuid.fadeOut('fast');
-        // $("#email").val("");
-        // $("#password").val("");
+
     });
 
     $("#loginForm").submit(function(){
@@ -368,6 +374,7 @@ $(function() {
             console.log("end ");
             // self.location="http://localhost:8000/board/list";
         }, 3000);
+
         return true;
     });
 
@@ -483,10 +490,6 @@ $("#updateBtn").on("click", function(){
 
     var mProfilepath = $("#mypage_profilepath").val();
 
-    alert(mProfilepath);
-    alert(mbirthday);
-    alert(mPostcode);
-
     formData.append("email",mEmail);
     formData.append("password",mPass);
     formData.append("birthday",mbirthday);
@@ -516,11 +519,11 @@ $("#updateBtn").on("click", function(){
         contentType:false,
         success: function(){
             error.html("");
-            alert("회원정보가 수정되었습니다.");
+            swal("회원정보가 수정 되었습니다.", "You clicked the button!", "success");
         },
         fail: function(){
             error.html("");
-            alert("회원정보 수정이 실패하였습니다.");
+            swal("회원정보 수정이 실패하였습니다.", "Something went wrong!", "error");
         }
     });
 });
@@ -546,7 +549,7 @@ $("#apiBtn").on("click", function(){
 
         },
         fail: function(){
-            alert("회원정보 수정이 실패하였습니다.");
+            swal("회원정보 수정이 실패하였습니다.", "Something went wrong!", "error");
         }
     });
 
@@ -566,7 +569,7 @@ $("#getApiBtn").click(function () {
             result.toggle();
         },
         fail: function(){
-            alert("API Key 조회에 실패하였습니다.");
+            swal("API Key 조회에 실패하였습니다.", "Something went wrong!", "error");
         }
     });
 });

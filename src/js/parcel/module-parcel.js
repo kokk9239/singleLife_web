@@ -1,6 +1,4 @@
-/**
- * Created by ko on 2016-07-15.
- */
+
 var parcel_module = (function () {
 
 

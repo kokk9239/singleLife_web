@@ -244,7 +244,7 @@ function readURL(input) {
         formData.append("file", file);
     }
     $.ajax({
-        url:"http://192.168.0.5:8000/uploadProfile",
+        url:"http://14.32.66.116:11000/uploadProfile",
         type:"POST",
         data:formData,
         dataType:"text",
@@ -274,7 +274,7 @@ function readURL_update(input) {
         formData.append("file", file);
     }
     $.ajax({
-        url:"http://192.168.0.5:8000/uploadProfile",
+        url:"http://14.32.66.116:11000/uploadProfile",
         type:"POST",
         data:formData,
         dataType:"text",
